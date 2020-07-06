@@ -1,6 +1,7 @@
 <dashboard script="extensions/table/main.js">
 <init>
-  <set token="numberOfRowsToken">10</set>
+  <set token="exampleTable_numberOfRowsToken">10</set>
+  <set token="fixedColumnTable_numberOfRowsToken">10</set>
 </init>
   <label>Tables</label>
   <description>Extendable Tables</description>
@@ -30,7 +31,7 @@
           <latest>now</latest>
         </search>
         <option name="drilldown">none</option>
-        <option name="count">$numberOfRowsToken$</option>
+        <option name="count">$exampleTable_numberOfRowsToken$</option>
       </table>
     </panel>
   </row>
@@ -65,7 +66,7 @@
           <latest>now</latest>
         </search>
         <option name="drilldown">none</option>
-        <option name="count">$numberOfRowsToken$</option>
+        <option name="count">$fixedColumnTable_numberOfRowsToken$</option>
       </table>
     </panel>
   </row>
