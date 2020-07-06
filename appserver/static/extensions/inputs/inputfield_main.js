@@ -40,6 +40,8 @@ require([
         country.smartDefaultValue();
         country.livesearch({
             baseSearch: 'countrySearch',
+            searchByLabelField: true,
+            searchByValueField: true,
             count: 20
         });
        
