@@ -15,17 +15,19 @@
     <view name="extensions_tables"/>
     <view name="extensions_inputs"/>
   </collection>
-  <collection label="Snippets">
-    <view name="extensions_tables"/>
-    <view name="extensions_inputs"/>
+  <collection label="CSS-Snippets">
+    <view name="snippet_company_ci"/>
+    <view name="snippets_responsiveness"/>
+  </collection>
+  <collection label="JS-Snippets">
+    <view name="snippets_translations"/>
+    <view name="snippets_dynamic_searches"/>
   </collection>
   <collection label="HTML">
     <view name="testdashboard"/>
-    <view name="datatables"/>
   </collection>
   <collection label="Web Components">
-    <view name="extensions_tables"/>
-    <view name="extensions_inputs"/>
+    <view name="webcomponents_slider"/>
   </collection>
   <view name="search"/>
 </nav>
