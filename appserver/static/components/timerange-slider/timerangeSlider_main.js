@@ -2,7 +2,7 @@ require([
     'underscore',
     'jquery',
     '/static/app/ConsistSplunkToolbox/components/timerange-slider/timerangeSlider.js',
-    '/static/app/ConsistSplunkToolbox/components/timerange-slider/timerangeSlideWebcomponent.js',
+    '/static/app/ConsistSplunkShowCase/components/timerange-slider/timerangeSlideWebcomponent.js',
     '/static/app/ConsistSplunkToolbox/utils/showtokens.js',
     'splunkjs/mvc/simplexml/ready!'
 ], function( 
