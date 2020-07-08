@@ -57,8 +57,6 @@
         <choice value="*">Alle</choice>
         <default>"*"</default>
       </input>
-    </panel>
-     <panel>
       <!--TODO: leider müssen aktuell fieldForValue und fieldForLabel einfache Strings sein (ohne - und blank)
       -->
       <search id="countrySearch">
@@ -72,7 +70,7 @@
         <fieldForLabel>name</fieldForLabel>
         <prefix>(</prefix>
         <suffix>)</suffix>
-        <valuePrefix>name="</valuePrefix>
+        <valuePrefix>alpha2="</valuePrefix>
         <valueSuffix>"</valueSuffix>
         <delimiter> OR </delimiter>
         <choice value="*">Alle</choice>
