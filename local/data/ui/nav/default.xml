@@ -6,6 +6,7 @@
     <view name="components_map"/>
     <view name="components_filterprofiles"/>
     <view name="components_rangeSlider"/>
+    <view name="components_datepicker"/>
   </collection>
   <collection label="Extensions">
     <view name="extensions_tables"/>

@@ -1,0 +1,24 @@
+<form script="components/datepicker/datepicker_main.js" theme="light">
+  <label>Custom Datepicker</label>
+  <init>
+    <set token="show">true</set>
+  </init>
+  <description>custom datepicker</description>
+  <fieldset submitButton="true" autoRun="true"></fieldset>
+  <row>
+    <panel id="customFieldset">
+      <title>Timerange Slider</title>
+      <input id="original" type="time" token="originalTime">
+        <label>Original Tiempicker</label>
+        <default>
+            <earliest>-24h@h</earliest>
+            <latest>now</latest>
+        </default>
+      </input>
+      <html>
+        <!-- Anker für JS-Component-->
+        <div id="customDatepicker"></div>
+      </html>
+    </panel>
+  </row>
+</form>
