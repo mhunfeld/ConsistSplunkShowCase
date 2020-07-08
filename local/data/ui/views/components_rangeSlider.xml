@@ -1,4 +1,4 @@
-<form script="components/timerange-slider/timerangeSlider_main.js" theme="light">
+<form script="components/range-slider/rangeSlider_main.js" theme="light">
   <label>Timerange Slider</label>
   <init>
     <set token="show">true</set>
@@ -24,7 +24,7 @@
         <div id="timeRangeSlider"></div>
 
         <!-- Timeslider als WebComponent-->
-        <co-timerange-slider id="webComponentSlider" token="timeAsComponent_tok" searchWhenChanged="true" depends="?show?">
+        <co-range-slider id="webComponentSlider" token="timeAsComponent_tok" searchWhenChanged="true" depends="?show?">
               <label>Als WebComponent</label>
               <min>0</min>
               <max>96</max>
@@ -35,7 +35,7 @@
               <labelPrefix>letzte </labelPrefix>
               <labelSuffix>?labelSuffix?</labelSuffix>
               <parentElement>customFieldset</parentElement>
-          </co-timerange-slider>
+          </co-range-slider>
         </html>
     </panel>
   </row>

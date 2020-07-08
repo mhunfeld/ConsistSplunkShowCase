@@ -3,12 +3,12 @@
 define([
     'underscore',
     'splunkjs/mvc',
-    '/static/app/ConsistSplunkToolbox/components/timerange-slider/timerangeSlider.js'
-], function (_, mvc, TimerangeSlider) { 
+    '/static/app/ConsistSplunkToolbox/components/range-slider/rangeSlider.js'
+], function (_, mvc, RangeSlider) { 
 
   
     
-    class TimerangeSliderElement extends HTMLElement {
+    class RangeSliderwebcomponent extends HTMLElement {
         constructor() {
             super();
             console.log('constructor');
@@ -38,7 +38,7 @@ define([
             options['labelPrefix'] = this.getOption('labelPrefix');
             options['labelSuffix'] = this.getOption('labelSuffix');
             
-            this.timerangeSlider = mvc.Components.get(options.id) || new TimerangeSlider(options, {tokens: true, tokenNamespace: "submitted"});
+            this.timerangeSlider = mvc.Components.get(options.id) || new RangeSlider(options, {tokens: true, tokenNamespace: "submitted"});
             this.timerangeSlider.render();
 
 
@@ -123,7 +123,7 @@ define([
 
     }
 
-    customElements.define('co-timerange-slider', TimerangeSliderElement);
+    customElements.define('co-range-slider', RangeSliderwebcomponent);
 });
 
-//@ sourceURL=timerangeSliderWebComponent.js
+//@ sourceURL=RangeSliderwebcomponent.js

@@ -5,7 +5,7 @@
   <collection label="Components">
     <view name="components_map"/>
     <view name="components_filterprofiles"/>
-    <view name="components_timerangeSlider"/>
+    <view name="components_rangeSlider"/>
   </collection>
   <collection label="Extensions">
     <view name="extensions_tables"/>

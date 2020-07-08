@@ -1,18 +1,18 @@
 require([
     'underscore',
     'jquery',
-    '/static/app/ConsistSplunkToolbox/components/timerange-slider/timerangeSlider.js',
-    '/static/app/ConsistSplunkShowCase/components/timerange-slider/timerangeSlideWebcomponent.js',
+    '/static/app/ConsistSplunkToolbox/components/range-slider/rangeSlider.js',
+    '/static/app/ConsistSplunkShowCase/components/range-slider/rangeSlideWebcomponent.js',
     '/static/app/ConsistSplunkToolbox/utils/showtokens.js',
     'splunkjs/mvc/simplexml/ready!'
 ], function( 
         _,
         $,
-        TimerangeSlider
+        RangeSlider
     ){
 
 
-        var testSlider = new TimerangeSlider({
+        var testSlider = new RangeSlider({
             label: 'Slider as Backbone View',
             min: 0,
             max: 96,
