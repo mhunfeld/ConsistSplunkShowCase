@@ -11,15 +11,29 @@ require([
     ){
 
 
-        var datepicker = new Datepicker({
-            id: 'customDatepicker',
-            token: 'customdate_tok'
+        var singelDatepicker = new Datepicker({
+            id: 'customSingleDatepicker',
+            token: 'customdate_tok',
+            default: 'now'
         });
         
 
-        datepicker.render();
+        singelDatepicker.render();
 
-        $('#customDatepicker').append(datepicker.el);
+        $('#customSingleDatepicker').append(singelDatepicker.el);
+
+
+        var rangeDatepicker = new Datepicker({
+            id: 'customRangeDatepicker',
+            token: 'customrangedate_tok',
+            asRange: true
+        });
+        
+
+        rangeDatepicker.render();
+
+        $('#customRangeDatepicker').append(rangeDatepicker.el);
+
 
 
     });
