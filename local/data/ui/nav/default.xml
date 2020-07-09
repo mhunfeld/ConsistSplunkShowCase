@@ -16,19 +16,23 @@
     <view name="extensions_tables"/>
     <view name="extensions_inputs"/>
   </collection>
-  <collection label="CSS-Snippets">
-    <view name="snippet_company_ci"/>
-    <view name="snippets_responsiveness"/>
+  <collection label="Snippets">
+    <collection label="CSS">
+      <view name="snippet_company_ci"/>
+      <view name="snippets_responsiveness"/>
+    </collection>
+    <collection label="JS">
+      <view name="snippets_translations"/>
+      <view name="snippets_dynamic_searches"/>
+    </collection>
   </collection>
-  <collection label="JS-Snippets">
-    <view name="snippets_translations"/>
-    <view name="snippets_dynamic_searches"/>
-  </collection>
-  <collection label="HTML">
-    <view name="testdashboard"/>
-  </collection>
-  <collection label="Web Components">
-    <view name="webcomponents_slider"/>
+  <collection label="Playground">
+    <collection label="HTML">
+      <view name="testdashboard"/>
+    </collection>
+    <collection label="Web Components">
+      <view name="webcomponents_slider"/>
+    </collection>
   </collection>
   <view name="search"/>
 </nav>
