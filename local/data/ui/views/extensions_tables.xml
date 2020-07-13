@@ -7,6 +7,29 @@
   <description>Extendable Tables</description>
   <row>
     <panel>
+      <title>rename table Header </title>
+      <table id="renameTableHeader">
+        <search>
+          <query>
+            index="_internal" | append [
+              | makeresults count=100 
+              | eval field1=if((random()%3) == 1, "Option A", "Option B") 
+              | eval field2=if((random()%5) == 1, "Option A", "Option B") 
+              | eval field3=if((random()%3) == 1, "Option A", "Option B")
+              | eval field4=if((random()%2) == 1, "Option A", "Option B") 
+              | rename field2 AS "extra long descriptionalble field name"
+            ]
+            | table "extra long descriptionalble field name" field* 
+          </query>
+          <earliest>-24h@h</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="drilldown">none</option>
+      </table>
+    </panel>
+  </row>
+  <row>
+    <panel>
       <title>Smart Table Columns and Rows</title>
       <input id="exampleFields" type="multiselect" token="exampleFields">
         <label>Field 3</label>
@@ -69,5 +92,10 @@
         <option name="count">$fixedColumnTable_numberOfRowsToken$</option>
       </table>
     </panel>
+  </row>
+  <row>
+    <html>
+      <div id="readme"></div>
+    </html>
   </row>
 </dashboard>
