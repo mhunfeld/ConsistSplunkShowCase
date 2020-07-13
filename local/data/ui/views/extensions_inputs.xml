@@ -1,7 +1,7 @@
 <dashboard script="extensions/inputs/inputfield_main.js" stylesheet="extensions/inputs/inutfield_main.css">
   <label>inputfields</label>
   <description>Extendable inputfields</description>
-
+  <fieldset submitButton="true" autoRun="false"></fieldset>
   <row>
     <panel>
       <title>Smart DefaultValue</title>
@@ -26,7 +26,7 @@
       </input>
     </panel>
     <panel>
-      <title>Copy To Clipboard</title>
+      <title>Copy To Clipboard, pastable, refreshable</title>
       <input id="field3" type="multiselect" token="field3">
         <label>Field 3</label>
         <choice value="value1">Wert 1</choice>
@@ -45,7 +45,7 @@
           | inputlookup countryList.csv | fields region
         </query>
       </search>
-      <input id="region" type="multiselect" token="region">
+      <input id="region" type="multiselect" token="region" searchWhenChanged="true">
         <label>Kontinent</label>
         <fieldForValue>region</fieldForValue>
         <fieldForLabel>region</fieldForLabel>
@@ -64,7 +64,7 @@
           | inputlookup countryList.csv | search $region$ | rename "alpha-2" as alpha2 | fields name alpha2
         </query>
       </search>
-      <input id="country" type="multiselect" token="country">
+      <input id="country" type="multiselect" token="country" searchWhenChanged="true">
         <label>Land</label>
         <fieldForValue>alpha2</fieldForValue>
         <fieldForLabel>name</fieldForLabel>
@@ -77,6 +77,11 @@
         <default>*</default>
       </input>
     </panel>
+  </row>
+  <row>
+    <html>
+      <div id="readme"></div>
+    </html>
   </row>
   
 </dashboard>
