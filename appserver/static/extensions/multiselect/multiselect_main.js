@@ -1,42 +1,37 @@
+
+
+
 require([
-    'backbone',
-    'underscore',
-    'jquery',
-    'splunkjs/mvc',
-    '/static/app/ConsistSplunkToolbox/extensions/inputs/inputfield.js',
-    "splunkjs/mvc/multidropdownview",
+    '/static/app/ConsistSplunkToolbox/extensions/multiselect/multiselect.js',
+    '/static/app/ConsistSplunkShowCase/helper/ReadMeView.js',
     '/static/app/ConsistSplunkToolbox/utils/showtokens.js',
     'css!/static/app/ConsistSplunkToolbox/material-iconfont/material-icons.css',
     'splunkjs/mvc/simplexml/ready!'
 ], function( 
-    Backbone,
-        _,
-        $,
-        mvc, 
-        Input,
-        DropdownView
+        Multiselect,
+        ReadMeView
     ){
 
 
-        var input1 = new Input('field1');
+        var input1 = new Multiselect('field1');
         input1.smartDefaultValue();
 
-        var input2 = new Input('field2');
+        var input2 = new Multiselect('field2');
         input2.sortable();
 
-        new Input('field3')
+        new Multiselect('field3')
             .applyCopyToClipboard()
             .pastable()
             .refreshable();
 
 
-        var region = new Input('region');
+        var region = new Multiselect('region');
         region.smartDefaultValue();
         region.livesearch({
             baseSearch: 'regionSearch',
         });
 
-        var country = new Input('country');
+        var country = new Multiselect('country');
         country.smartDefaultValue();
         country.livesearch({
             baseSearch: 'countrySearch',
@@ -44,6 +39,13 @@ require([
             searchByValueField: true,
             count: 20
         });
+
+
+        var readMeView = new ReadMeView({
+            path: '/ConsistSplunkToolbox/extensions/multiselect'
+        });
+
+        $('#readme').append(readMeView.render().$el);
        
 });
 
