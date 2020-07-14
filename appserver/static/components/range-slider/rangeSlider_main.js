@@ -2,13 +2,15 @@ require([
     'underscore',
     'jquery',
     '/static/app/ConsistSplunkToolbox/components/range-slider/rangeSlider.js',
+    '/static/app/ConsistSplunkShowCase/helper/ReadMeView.js',
     '/static/app/ConsistSplunkShowCase/components/range-slider/rangeSlideWebcomponent.js',
     '/static/app/ConsistSplunkToolbox/utils/showtokens.js',
     'splunkjs/mvc/simplexml/ready!'
 ], function( 
         _,
         $,
-        RangeSlider
+        RangeSlider,
+        ReadMeView
     ){
 
 
@@ -23,14 +25,18 @@ require([
             prefix: '-@',
             suffix: '$timeUnit$',
             labelPrefix: 'letzte ',
-            labelSuffix: '$labelSuffix$',
-            id: 'js-Component'
+            labelSuffix: '$labelSuffix$'
         }, {tokens: true});
+
         testSlider.render();
 
         $('#customFieldset .fieldset').append(testSlider.el);
 
-
+        var readMeView = new ReadMeView({
+            path: '/ConsistSplunkToolbox/components/range-slider'
+        });
+    
+        $('#readme').append(readMeView.render().$el);
     });
 
     //@ sourceURL=timerangeslider_main.js
