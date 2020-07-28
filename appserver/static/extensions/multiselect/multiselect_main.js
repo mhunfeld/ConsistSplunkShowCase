@@ -10,7 +10,7 @@ require([
 ], function( 
         Multiselect,
         ReadMeView
-    ){
+    ) {
 
 
         var input1 = new Multiselect('field1');
