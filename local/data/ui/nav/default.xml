@@ -1,16 +1,20 @@
 <nav search_view="search">
 
   <view name="overview" default="true"/>
-  
-  <collection label="Components">
-    <view name="components_map"/>
-    <view name="components_filterprofiles"/>
-    <view name="components_rangeSlider"/>
-    <view name="components_datepicker"/>
-  </collection>
-  <collection label="Extensions">
-    <view name="extensions_tables"/>
-    <view name="extensions_inputs"/>
+  <collection label="SplunkToolbox">
+    <collection label="Components">
+      <view name="components_map"/>
+      <view name="components_filterprofiles"/>
+      <view name="components_rangeSlider"/>
+      <view name="components_datepicker"/>
+    </collection>
+    <collection label="Extensions">
+      <view name="extensions_tables"/>
+      <view name="extensions_inputs"/>
+    </collection>
+    <collection label="utils">
+      <view name="extensions_tables"/>
+    </collection>
   </collection>
   <collection label="Visualizations">
     <view name="extensions_tables"/>
