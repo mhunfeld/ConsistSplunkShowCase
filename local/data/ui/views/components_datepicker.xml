@@ -1,16 +1,12 @@
-<form script="components/datepicker/datepicker_main.js" theme="light">
+<form script="components/datepicker/datepicker_main.js" stylesheet="overview.css" theme="light">
   <label>Custom Datepicker</label>
   <init>
     <set token="show">true</set>
-    <!--<eval token="form.customSingleDatepicker">now()</eval>
-    <eval token="form.customRangeDatepicker.earliest">relative_time(now(), "-3mon@d")</eval>
-    <eval token="form.customRangeDatepicker.latest">relative_time(now(), "-1d@d")</eval>-->
   </init>
   <description>custom datepicker</description>
   <fieldset submitButton="true" autoRun="true"></fieldset>
   <row>
     <panel id="customFieldset">
-      <title>Timerange Slider</title>
       <input id="original" type="time" token="originalTime">
         <label>Original Timepicker</label>
         <default>
@@ -21,10 +17,18 @@
       <html>
         <!-- Anker für JS-Component-->
         <div id="customSingleDatepicker"></div>
-
-
+      </html>
+      <html>
         <div id="customRangeDatepicker"></div>
       </html>
     </panel>
+  </row>
+
+  <row id="docu">
+    <html>
+        <input type="checkbox" id="components" />
+        <label for="components">Documentation</label>
+        <div id="readme" class="content"></div>
+    </html>
   </row>
 </form>
