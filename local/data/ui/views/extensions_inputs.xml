@@ -1,6 +1,6 @@
-<dashboard script="extensions/inputs/inputfield_main.js" stylesheet="extensions/inputs/inutfield_main.css">
-  <label>inputfields</label>
-  <description>Extendable inputfields</description>
+<dashboard script="extensions/multiselect/multiselect_main.js" stylesheet="extensions/multiselect/multiselect_main.css,overview.css">
+  <label>Multiselect Fields</label>
+  <description>Extendable multiselects</description>
   <fieldset submitButton="true" autoRun="false"></fieldset>
   <row>
     <panel>
@@ -78,9 +78,11 @@
       </input>
     </panel>
   </row>
-  <row>
+  <row id="docu">
     <html>
-      <div id="readme"></div>
+      <input type="checkbox" id="components" />
+        <label for="components">Documentation</label>
+        <div id="readme" class="content"></div>
     </html>
   </row>
   
