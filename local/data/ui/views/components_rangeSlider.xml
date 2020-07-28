@@ -1,4 +1,4 @@
-<form script="components/range-slider/rangeSlider_main.js" theme="light">
+<form script="components/range-slider/rangeSlider_main.js" stylesheet="overview.css" theme="light">
   <label>Timerange Slider</label>
   <init>
     <set token="show">true</set>
@@ -23,46 +23,19 @@
         <!-- Anker für JS-Component-->
         <div id="timeRangeSlider"></div>
 
-        <!-- Timeslider als WebComponent-->
-        <co-range-slider id="webComponentSlider" token="timeAsComponent_tok" searchWhenChanged="true" depends="?show?">
-              <label>Als WebComponent</label>
-              <min>0</min>
-              <max>96</max>
-              <step>12</step>
-              <defaultValue>24</defaultValue>
-              <prefix>-@</prefix>
-              <suffix>?timeUnit?</suffix>
-              <labelPrefix>letzte </labelPrefix>
-              <labelSuffix>?labelSuffix?</labelSuffix>
-              <parentElement>customFieldset</parentElement>
-          </co-range-slider>
-        </html>
-    </panel>
-  </row>
 
-  <row id="row2">
-    <panel>
-      <title>Slider as Range slider</title>
-      <html>
-        <co-range-slider id="sliderWithValues" token="sliderValues_tok" searchWhenChanged="true" depends="?show?">
-              <min>0</min>
-              <max>96</max>
-              <step>12</step>
-              <defaultValue>24</defaultValue>
-              <prefix>posts > </prefix>
-              <suffix></suffix>
-              <labelPrefix>mindestens </labelPrefix>
-              <labelSuffix> Einträge</labelSuffix>
-              <parentElement>row2</parentElement>
-          </co-range-slider>
-        </html>
+        <!-- Anker für JS-Component-->
+        <div id="rangeSlider"></div>
+      </html>
     </panel>
   </row>
 
   
-  <row>
+  <row id="docu">
     <html>
-      <div id="readme"></div>
+        <input type="checkbox" id="components" />
+        <label for="components">Documentation</label>
+        <div id="readme" class="content"></div>
     </html>
   </row>
 </form>

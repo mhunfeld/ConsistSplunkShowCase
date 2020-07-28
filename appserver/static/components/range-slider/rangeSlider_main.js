@@ -3,7 +3,6 @@ require([
     'jquery',
     '/static/app/ConsistSplunkToolbox/components/range-slider/rangeSlider.js',
     '/static/app/ConsistSplunkShowCase/helper/ReadMeView.js',
-    '/static/app/ConsistSplunkShowCase/components/range-slider/rangeSlideWebcomponent.js',
     '/static/app/ConsistSplunkToolbox/utils/showtokens.js',
     'splunkjs/mvc/simplexml/ready!'
 ], function( 
@@ -14,23 +13,40 @@ require([
     ){
 
 
-        var testSlider = new RangeSlider({
-            label: 'Slider as Backbone View',
+        var timeSlider = new RangeSlider({
+            label: 'Slider as time picker',
             min: 0,
             max: 96,
             defaultValue: 24,
             step:   12,
-            id: 'my-range-slider',
-            token: 'slider_tok',
+            id: 'my-time-range-slider',
+            token: 'timeslider_tok',
             prefix: '-@',
             suffix: '$timeUnit$',
             labelPrefix: 'letzte ',
             labelSuffix: '$labelSuffix$'
         }, {tokens: true});
 
-        testSlider.render();
+        timeSlider.render();
 
-        $('#customFieldset .fieldset').append(testSlider.el);
+        $('#customFieldset .fieldset').append(timeSlider.el);
+
+
+        var simpleSlider = new RangeSlider({
+            label: 'Slider as simple range slider',
+            min: 0,
+            max: 64,
+            id: 'my-range-slider',
+            token: 'slider_tok',
+            labelSuffix: 'Einträge'
+        }, {tokens: true});
+
+        simpleSlider.render();
+
+        $('#customFieldset .fieldset').append(simpleSlider.el);
+
+
+
 
         var readMeView = new ReadMeView({
             path: '/ConsistSplunkToolbox/components/range-slider'
