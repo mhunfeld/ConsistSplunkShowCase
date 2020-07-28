@@ -1,4 +1,125 @@
-<dashboard>
+<form stylesheet="css_snippets/css/corporate_ci.css">
   <label>Company CI</label>
-  <description>Examples for customizing ui of Splunk dashboards</description>
-</dashboard>
+  <description>Examples for customizing ui of Splunk dashboards - SimpleXML and CSS only</description>
+  <fieldset submitButton="false">
+    <input type="time" token="field1">
+      <label></label>
+      <default>
+        <earliest>-24h@h</earliest>
+        <latest>now</latest>
+      </default>
+    </input>
+  </fieldset>
+  <row id="kpi_row">
+    <panel id="gesamtkosten_panel">
+      <single>
+        <title>Gesamtkosten im Monat</title>
+        <search id="gesamtkosten_search">
+          <query>
+          | makeresults 
+          | eval value="8 9 8 11 15 7 11 19 5" 
+          | makemv value 
+          | mvexpand value 
+          | streamstats count AS _pos 
+          | eventstats max(_pos) AS _count 
+          | eval _time = _time + _pos 
+          | eval _showvalue=if(_pos== (_count - 1), value, null()) 
+          | eventstats first(_showvalue) AS _showvalue
+          </query>
+          <earliest>-24h@h</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="colorBy">trend</option>
+        <option name="height">230</option>
+        <option name="drilldown">none</option>
+        <option name="rangeColors">["0x53a051","0x0877a6","0xf8be34","0xf1813f","0xdc4e41"]</option>
+        <option name="trendDisplayMode">absolute</option>
+        <option name="trendInterval">-1h</option>
+        <option name="underLabel">seit letzten Monat</option>
+        <option name="unit">GB</option>
+        <option name="useColors">1</option>
+      </single>
+    </panel>
+    <panel id="kostenaufteilung_panel">
+      <title>Kostenaufteilung</title>
+      <viz type="semicircle_donut.semicircle_donut">
+        <search id="kostenaufteilung_search">
+          <query>
+            | makeresults count=100 
+            | eval value = random()%3
+            | eval field1=case(value == 1, "DB Cargo Option A", value == 0, "Option B", value == 2, "Option C")
+            | eval color=case(value == 1, "#065071", value == 0, "#5ABCE8", value == 2, "#068BBC")
+            | stats count by field1,color
+          </query>
+          <earliest>-2h@h</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="semicircle_donut.semicircle_donut.colorField">color</option>
+        <option name="semicircle_donut.semicircle_donut.cutoutPercentage">75</option>
+        <option name="semicircle_donut.semicircle_donut.legendPosition">right</option>
+        <option name="semicircle_donut.semicircle_donut.type">full</option>
+        <option name="height">230</option>
+      </viz>
+    </panel>
+    <panel id="gesamtdatenverbrauch_panel">
+      <single>
+        <title>Gesamtdatenverbrauch</title>
+        <search id="gesamtverbrauch_search">
+          <query>
+          | makeresults 
+          | eval value="8 9 8 11 15 7 11 19 5" 
+          | makemv value 
+          | mvexpand value 
+          | streamstats count AS _pos 
+          | eventstats max(_pos) AS _count 
+          | eval _time = _time + _pos 
+          | eval _showvalue=if(_pos== (_count - 1), value, null()) 
+          | eventstats first(_showvalue) AS _showvalue
+          </query>
+          <earliest>-24h@h</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="colorBy">trend</option>
+        <option name="drilldown">none</option>
+        <option name="rangeColors">["0x53a051","0x0877a6","0xf8be34","0xf1813f","0xdc4e41"]</option>
+        <option name="trendDisplayMode">absolute</option>
+        <option name="trendInterval">-1h</option>
+        <option name="underLabel">seit letzten Monat</option>
+        <option name="unit">GB</option>
+        <option name="useColors">1</option>
+        <option name="height">230</option>
+      </single>
+    </panel>
+  </row>
+  <!-- <row id="html_row1">
+    <html>
+      <div class="kosten">
+        <div id="gesamtkosten_html_panel" class="simpleView"></div>
+        <div id="kostenaufteilung_html_panel" class="simpleView"></div>
+      </div>
+       </html>
+     <html>
+      <div class="verbrauch">
+        <div id="gesamtdatenverbrauch_html_panel" class="simpleView"></div>
+      </div>
+    </html>
+  </row> -->
+  <row id="table_row">
+    <panel>
+      <table>
+        <search>
+          <query>
+            index=_internal | chart sparkline count by sourcetype
+          </query>
+          <earliest>-24h@h</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="drilldown">none</option>
+        <format type="sparkline" field="sparkline">
+          <option name="lineColor">#2296C3</option>
+          <option name="fillColor">#CFEBF7</option>
+        </format>
+      </table>
+    </panel>
+  </row>
+</form>

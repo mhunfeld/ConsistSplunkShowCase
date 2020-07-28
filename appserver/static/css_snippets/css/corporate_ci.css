@@ -1,0 +1,89 @@
+/*FONTS*/
+
+@font-face { 
+    font-family: 'DB Sans';
+    src: url('/static/app/ConsistSplunkShowCase/css_snippets/fonts/DBScreenSans-Regular.woff2') 
+    format('woff2'); 
+}
+
+@font-face { 
+    font-family: 'DB Sans Bold';
+    src: url('/static/app/ConsistSplunkShowCase/css_snippets/fonts/DBScreenSans-Bold.woff2') 
+    format('woff2'); 
+}
+
+/*general settings (font)*/
+#dashboard1 * {
+    font-family: DB Sans;
+    font-size: 0.688rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.33;
+}
+
+/* bolder headlines*/
+#dashboard1 h2, #dashboard1 h3 {
+    font-family: DB Sans Bold;
+    font-size: 1.625em;
+    line-height: 1.23em;
+    margin: 23px 0 0;
+}
+
+.dashboard-cell {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+
+/*padding panels*/
+#kpi_row {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+#kpi_row .dashboard-panel {
+    margin: 0;
+}
+
+/*padding between single value panels*/
+#kostenaufteilung_panel {
+    margin: 0 20px 0 0;
+    width: calc(33% - 20px) !important;
+}
+
+/*colors single value*/
+#kpi_row polyline, #kpi_row line, #kpi_row .single-value-delta text, #kpi_row path, #kpi_row circle {
+    color: #2296C3 !important;
+    stroke: #2296C3 !important;
+}
+
+#kpi_row circle, #kpi_row .single-value-delta text {
+    fill: #2296C3 !important;
+}
+
+/*table*/
+
+/* bolder table headlines*/
+#dashboard1 th a{
+    font-family: DB Sans Bold;
+    font-weight: 700 !important;
+    font-size: 0.8rem !important;
+}
+
+/* formatting table header*/
+.table th {
+    background-color: white !important;
+    padding: 15px 25px 15px 10px!important;
+    border-bottom: 4px solid #e1e6eb !important;
+}
+
+/*padding table cell*/
+.table td {
+    padding: 10px 25px 10px 10px!important;
+}
+
+/*bold font in first column*/
+table td:first-child {
+    font-family: DB Sans Bold;
+    font-weight: 700 !important;
+}
