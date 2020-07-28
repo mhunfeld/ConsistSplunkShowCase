@@ -1,4 +1,4 @@
-<dashboard script="extensions/table/main.js">
+<dashboard script="extensions/table/main.js" stylesheet="overview.css" >
 <init>
   <set token="exampleTable_numberOfRowsToken">10</set>
   <set token="fixedColumnTable_numberOfRowsToken">10</set>
@@ -93,9 +93,11 @@
       </table>
     </panel>
   </row>
-  <row>
+  <row id="docu">
     <html>
-      <div id="readme"></div>
+      <input type="checkbox" id="components" />
+        <label for="components">Documentation</label>
+        <div id="readme" class="content"></div>
     </html>
   </row>
 </dashboard>
