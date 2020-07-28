@@ -2,16 +2,19 @@ require([
     'underscore',
     'jquery',
     '/static/app/ConsistSplunkToolbox/components/datepicker/datepicker.js',
+    '/static/app/ConsistSplunkShowCase/helper/ReadMeView.js',
     '/static/app/ConsistSplunkToolbox/utils/showtokens.js',
     'splunkjs/mvc/simplexml/ready!'
 ], function( 
         _,
         $,
-        Datepicker
+        Datepicker,
+        ReadMeView
     ){
 
 
         var singelDatepicker = new Datepicker({
+            label: 'Datepicker as Single Date',
             id: 'customSingleDatepicker',
             token: 'customdate_tok',
             default: 'now'
@@ -24,6 +27,7 @@ require([
 
 
         var rangeDatepicker = new Datepicker({
+            label: 'Datepicker as Range Picker',
             id: 'customRangeDatepicker',
             token: 'customrangedate_tok',
             asRange: true
@@ -34,7 +38,11 @@ require([
 
         $('#customRangeDatepicker').append(rangeDatepicker.el);
 
-
+        var readMeView = new ReadMeView({
+            path: '/ConsistSplunkToolbox/components/datepicker'
+        });
+    
+        $('#readme').append(readMeView.render().$el);
 
     });
 
