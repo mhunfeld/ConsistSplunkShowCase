@@ -1,4 +1,29 @@
-<dashboard>
+<dashboard script="playground/rangeSlideWebComponent.js">
   <label>WebComponents</label>
   <description>Examples for using web components in simpleXML</description>
+
+
+
+  <row id="row2">
+    <panel>
+      <title>Slider as Range slider</title>
+
+      <html>
+      
+        <co-range-slider id="sliderWithValues" token="sliderValues_tok" searchWhenChanged="true" depends="?show?">
+          <min>0</min>
+          <max>96</max>
+          <step>12</step>
+          <defaultValue>24</defaultValue>
+          <prefix>posts > </prefix>
+          <suffix></suffix>
+          <labelPrefix>mindestens </labelPrefix>
+          <labelSuffix> EintrXXXge</labelSuffix>
+          <parentElement>row2</parentElement>
+        </co-range-slider>
+  
+      </html>
+    </panel>
+  </row>
+
 </dashboard>

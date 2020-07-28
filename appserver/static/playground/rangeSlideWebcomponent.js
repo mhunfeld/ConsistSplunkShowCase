@@ -1,6 +1,6 @@
 
 
-define([
+require([
     'underscore',
     'splunkjs/mvc',
     '/static/app/ConsistSplunkToolbox/components/range-slider/rangeSlider.js'
