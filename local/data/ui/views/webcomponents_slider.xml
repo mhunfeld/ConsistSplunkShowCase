@@ -18,7 +18,7 @@
           <prefix>posts > </prefix>
           <suffix></suffix>
           <labelPrefix>mindestens </labelPrefix>
-          <labelSuffix> EintrXXXge</labelSuffix>
+          <labelSuffix> Einträge</labelSuffix>
           <parentElement>row2</parentElement>
         </co-range-slider>
   
