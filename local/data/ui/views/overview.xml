@@ -4,7 +4,7 @@
 
 <row>
     <panel>
-      <html>
+      <!--<html>
         <input type="checkbox" id="components" />
         <label for="components">Components</label>
         <div class="content">
@@ -70,7 +70,7 @@
           odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
           </p>
         </div>
-      </html>
+      </html>-->
     </panel>
   </row>
 </dashboard>
