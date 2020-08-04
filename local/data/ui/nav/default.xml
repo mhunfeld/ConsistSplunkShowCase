@@ -12,21 +12,21 @@
       <view name="extensions_tables"/>
       <view name="extensions_inputs"/>
     </collection>
-    <collection label="utils">
+    <!--<collection label="utils">
       <view name="extensions_tables"/>
-    </collection>
+    </collection>-->
   </collection>
-  <collection label="Visualizations">
+  <!--<collection label="Visualizations">
     <view name="extensions_tables"/>
     <view name="extensions_inputs"/>
-  </collection>
+  </collection>-->
   <collection label="Snippets">
     <collection label="CSS">
       <view name="snippet_company_ci"/>
     </collection>
     <collection label="JS">
       <view name="snippets_translations"/>
-      <view name="snippets_dynamic_searches"/>
+      <!--<view name="snippets_dynamic_searches"/>-->
     </collection>
   </collection>
   <collection label="Playground">
