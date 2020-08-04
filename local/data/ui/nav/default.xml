@@ -23,7 +23,6 @@
   <collection label="Snippets">
     <collection label="CSS">
       <view name="snippet_company_ci"/>
-      <view name="snippets_responsiveness"/>
     </collection>
     <collection label="JS">
       <view name="snippets_translations"/>
@@ -31,9 +30,9 @@
     </collection>
   </collection>
   <collection label="Playground">
-    <collection label="HTML">
+    <!--<collection label="HTML">
       <view name="testdashboard"/>
-    </collection>
+    </collection>-->
     <collection label="Web Components">
       <view name="webcomponents_slider"/>
     </collection>
