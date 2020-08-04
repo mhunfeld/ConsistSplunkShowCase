@@ -1,0 +1,41 @@
+<form script="components/popups/popups_main.js" stylesheet="overview.css,components/popups/popups_main.css" theme="light">
+  <label>Popups, Tooltips and Popovers </label>
+  <row id="info">
+    <html>
+      <h2>Popups</h2> <a href="#" title="See What I Did There?" data-placement="top" data-toggle="popover" data-trigger="hover" data-content="It's really not so complicated, you just put this HTML together with the Javascript and CSS, bake for about 10 minutes, and you have context!">(?)</a>
+      <h4>
+        example from <a class="external" href="https://splunkbase.splunk.com/app/4104/">Splunk Dev For All App</a>, extended by theming
+      </h4>
+    </html>
+  </row>
+  <row>
+    <panel id="tablePanel">
+      <table id="table">
+        <search>
+          <query>
+            index="_internal" | append [
+              | makeresults count=100 
+              | eval field1=if((random()%3) == 1, "Option A", "Option B") 
+              | eval field2=if((random()%5) == 1, "Option A", "Option B") 
+              | eval field3=if((random()%3) == 1, "Option A", "Option B")
+              | eval field4=if((random()%2) == 1, "Option A", "Option B") 
+              | rename field2 AS "extra long descriptionalble field name"
+            ]
+            | table "extra long descriptionalble field name" field* 
+          </query>
+          <earliest>-24h@h</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="drilldown">none</option>
+      </table>
+    </panel>
+  </row>
+
+  <row id="docu">
+    <!--<html>
+        <input type="checkbox" id="components" />
+        <label for="components">Documentation</label>
+        <div id="readme" class="content"></div>
+    </html>-->
+  </row>
+</form>
