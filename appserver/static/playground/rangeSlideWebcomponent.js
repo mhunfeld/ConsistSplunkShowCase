@@ -3,7 +3,8 @@
 require([
     'underscore',
     'splunkjs/mvc',
-    '/static/app/ConsistSplunkToolbox/components/range-slider/rangeSlider.js'
+    '/static/app/ConsistSplunkToolbox/components/range-slider/rangeSlider.js',
+    'splunkjs/mvc/simplexml/ready!'
 ], function (_, mvc, RangeSlider) { 
 
   

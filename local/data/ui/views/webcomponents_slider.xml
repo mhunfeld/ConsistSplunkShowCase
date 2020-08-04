@@ -1,9 +1,13 @@
-<dashboard script="playground/rangeSlideWebComponent.js">
+<dashboard >
   <label>WebComponents</label>
   <description>Examples for using web components in simpleXML</description>
-
-
-
+  <row>
+    <html>
+      <h4>
+        WARNING: it only works in Version 7.2 (this example uses obviously a "bug" which is fixed in > 7.3)
+      </h4>
+    </html>
+  </row>
   <row id="row2">
     <panel>
       <title>Slider as Range slider</title>
@@ -21,7 +25,6 @@
           <labelSuffix> Einträge</labelSuffix>
           <parentElement>row2</parentElement>
         </co-range-slider>
-  
       </html>
     </panel>
   </row>
