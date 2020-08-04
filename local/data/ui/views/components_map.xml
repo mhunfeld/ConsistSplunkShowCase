@@ -1,4 +1,19 @@
-<dashboard script="components/filterprofiles/examples/filterprofile_main.js" stylesheet="components/filterprofiles/examples/filterprofileMain.css" theme="dark">
-  <label>Maps</label>
+<dashboard script="components/map/map_main.js" stylesheet="components/map/map_main.css">
+  <label>Maps (WIP)</label>
   <description>Examples for using maps</description>
+
+  <row id="map_row">
+    <panel id="map_panel">
+      <search id="map_search">
+        <query>
+        | inputlookup maps_trackspoints.csv 
+        | eval pathIdentifier = track_id
+        </query>
+      </search>
+      <html>
+        <div id="map">
+        </div>
+      </html>
+    </panel>
+  </row>
 </dashboard>
