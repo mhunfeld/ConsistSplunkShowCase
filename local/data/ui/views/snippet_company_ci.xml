@@ -1,15 +1,15 @@
 <form stylesheet="css_snippets/css/corporate_ci.css">
-  <label>Company CI</label>
-  <description>Examples for customizing ui of Splunk dashboards - SimpleXML and CSS only</description>
-  <fieldset submitButton="false">
-    <input type="time" token="field1">
-      <label></label>
-      <default>
-        <earliest>-24h@h</earliest>
-        <latest>now</latest>
-      </default>
-    </input>
-  </fieldset>
+  <row id="info">
+    <html>
+      <h2>Company CI</h2>
+      <h4>
+      Examples for customizing ui of Splunk dashboards - SimpleXML and CSS only
+      </h4>
+      <h4>
+      customizing of fonts, margins and colors
+      </h4>
+    </html>
+  </row>
   <row id="kpi_row">
     <panel id="gesamtkosten_panel">
       <single>
