@@ -1,20 +1,20 @@
 /*FONTS*/
 
 @font-face { 
-    font-family: 'DB Sans';
-    src: url('/static/app/ConsistSplunkShowCase/css_snippets/fonts/DBScreenSans-Regular.woff2') 
-    format('woff2'); 
+    font-family: 'Abril Fatface';
+    src: url('/static/app/ConsistSplunkShowCase/css_snippets/fonts/Abril_Fatface/AbrilFatface-Regular.ttf') 
+    format('truetype'); 
 }
 
 @font-face { 
-    font-family: 'DB Sans Bold';
-    src: url('/static/app/ConsistSplunkShowCase/css_snippets/fonts/DBScreenSans-Bold.woff2') 
-    format('woff2'); 
+    font-family: 'Open Sans';
+    src: url('/static/app/ConsistSplunkShowCase/css_snippets/fonts/Open_Sans/OpenSans-Regular.ttf') 
+    format('truetype'); 
 }
 
 /*general settings (font)*/
 #dashboard1 * {
-    font-family: DB Sans;
+    font-family: Open Sans;
     font-size: 0.688rem;
     font-style: normal;
     font-weight: 400;
@@ -23,7 +23,7 @@
 
 /* bolder headlines*/
 #dashboard1 h2, #dashboard1 h3 {
-    font-family: DB Sans Bold;
+    font-family: Abril Fatface;
     font-size: 1.625em;
     line-height: 1.23em;
     margin: 23px 0 0;
@@ -65,7 +65,7 @@
 
 /* bolder table headlines*/
 #dashboard1 th a{
-    font-family: DB Sans Bold;
+    font-family:  Abril Fatface;
     font-weight: 700 !important;
     font-size: 0.8rem !important;
 }
@@ -83,7 +83,7 @@
 }
 
 /*bold font in first column*/
-table td:first-child {
-    font-family: DB Sans Bold;
+#dashboard1 table td:first-child {
+    font-family: Abril Fatface;
     font-weight: 700 !important;
 }
