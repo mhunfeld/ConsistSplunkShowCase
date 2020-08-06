@@ -3,11 +3,11 @@
   <view name="overview" default="true"/>
   <collection label="SplunkToolbox">
     <collection label="Components">
+      <view name="components_datepicker"/>
+      <view name="components_rangeSlider"/>
+      <view name="components_popups"/>
       <view name="components_map"/>
       <view name="components_filterprofiles"/>
-      <view name="components_rangeSlider"/>
-      <view name="components_datepicker"/>
-      <view name="components_popups"/>
     </collection>
     <collection label="Extensions">
       <view name="extensions_tables"/>
