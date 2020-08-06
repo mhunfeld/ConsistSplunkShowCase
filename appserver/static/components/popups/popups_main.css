@@ -1,3 +1,8 @@
 #info h2 {
     display: inline;
+    padding: 0 5px;
+}
+
+#table table a {
+    display: inline-block;
 }

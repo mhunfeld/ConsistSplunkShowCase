@@ -1,27 +1,145 @@
 <form script="components/popups/popups_main.js" stylesheet="overview.css,components/popups/popups_main.css" theme="light">
-  <label>Popups, Tooltips and Popovers </label>
-  <row id="info">
-    <html>
-      <h2>Popups</h2> <a href="#" title="See What I Did There?" data-placement="top" data-toggle="popover" data-trigger="hover" data-content="It's really not so complicated, you just put this HTML together with the Javascript and CSS, bake for about 10 minutes, and you have context!">(?)</a>
-      <h4>
-        example from <a class="external" href="https://splunkbase.splunk.com/app/4104/">Splunk Dev For All App</a>, extended by theming
-      </h4>
-    </html>
+  <label>Popovers </label>
+  <init>
+    <set token="popoverContent">Content from a Token</set>
+  </init>
+  <row>
+    <panel>
+      <html>
+        <section>
+          <h3>Why?</h3>
+          <p>Mit einem Popover können kleinere Informationen in einem Kontext angezeigt werden. Im Gengensatz zu Tooltips bringen Popovers 
+          etwas mehr Styling mit und können eine Überschrift haben. 
+          </p>
+           <p>Popover sind konfigurierbar und können über Optionen angepasst werden: 
+            <ul>
+              <li>Ausrichtung</li>
+              <li>Trigger</li>
+              <li>...</li>
+            </ul>
+          </p>
+          <p>
+            Der Content eines Popovers kann auch aus komplexeren HTML-Strukturen bestehen - je nach dem, sollte dann aber eher auf ein Popup zurückgegriffen werden.
+          </p>
+          <p>
+            Die Idee hierzu stammt aus <a class="external" href="https://splunkbase.splunk.com/app/4104/">Splunk Dev For All App</a> 
+            und wurde um Theming etc. erweitert. 
+          </p>
+          <p>  
+            Die Erweiterung basiert wiederum auf Bootstrap Popovers: <a class="external" href="https://getbootstrap.com/docs/4.3/components/popovers/">Doku zu Bootstrap</a>
+          </p>
+        </section>
+      </html>
+    </panel>
+    <panel>
+      <html>
+        <section>
+          <h3>Where?</h3>
+          <p>
+            Popover sind sehr flexibel und können unter anderem an
+            <ul>
+              <li>HTML-Elemente mit einem Data-Attribut</li>
+              <li>Überschriften von Splunk-Elementen, wie Inputs, Panels etc.</li>
+              <li>Zellen in Tabellen über einen BaseCellRenderer</li>
+            </ul>
+          </p>
+        </section>
+      </html>
+    </panel>
+    <panel>
+      <html>
+        <section>
+          <h3>How?</h3>
+          <p>Popover können direkt im HTML mit data-Attributen oder aber in Javascript konfiguriert werden. Da Splunk auch Tokens im Html auswertet, 
+          kann der Inhalt und Title eines Popovers auch über Tokens gefüllt werden. Weitere Infos in der Dokumentation und in den Beispielen.</p>
+        </section>
+      </html>
+    </panel>
   </row>
+
+  <row id="info">
+    <panel>
+      <title>Init in HTML</title>
+      <html>
+        <p> 
+          <a href="#" title="See What I Did There?" data-placement="right" data-toggle="popover" data-trigger="click" 
+          data-content="It's really not so complicated, you just put this HTML together with the Javascript and CSS, bake for about 10 minutes, and you have context!">
+            <h2>Popover on Click</h2>
+            <li class="icon-info-circle"></li>
+          </a>
+        </p>
+        <p>
+          <a href="#" title="See What I Did There?" data-placement="bottom" data-toggle="popover" data-trigger="focus" data-content="It's really not so complicated, you just put this HTML together with the Javascript and CSS, bake for about 10 minutes, and you have context!">
+            <h2>Popover on Focus</h2>
+          </a>
+        </p>
+        <p>
+          <a href="#" title="See What I Did There?" data-placement="top" data-toggle="popover" data-trigger="hover" data-content="Test Content">
+            <h2>Popover on Hover</h2>
+          </a>
+        </p>
+        <p>
+          <a href="#" title="See What I Did There?" data-placement="top" data-toggle="popover" data-trigger="hover" data-content="$popoverContent$">
+            <h2>Popover filled with Token</h2>
+          </a>
+        </p>
+      </html>
+    </panel>
+    <!--<panel>
+      <html>
+        <h2>Init in HTML</h2>
+        <section>
+          <h3>How to use?</h3>
+          <code>
+            <a href="#" title="See What I Did There?" data-placement="bottom" data-toggle="popover" data-trigger="focus" data-content="It's really not so complicated, you just put this HTML together with the Javascript and CSS, bake for about 10 minutes, and you have context!">
+              <h2>Popover on Focus</h2>
+            </a>
+          </code>
+        </section>
+      </html>
+    </panel>-->
+  </row>
+   <row>
+    <panel>
+      <title>Init in JS and add to existing splunk Components</title>
+      <input id="field1" type="multiselect" token="field1">
+        <label>Field 1</label>
+        <choice value="*">Alle</choice>
+        <choice value="value2">Wert 2</choice>
+        <choice value="value3">Wert 3</choice>
+        <choice value="value4">Wert 4</choice>
+        <default>*</default>
+      </input>
+    </panel>
+    <!--<panel>
+      <html>
+        <h2>
+          Init in JS and add to existing splunk Components
+        </h2>
+        <section>
+          <h3>When to use?</h3>
+        </section>
+        <section>
+          <h3>How to use?</h3>
+        </section>
+      </html>
+    </panel>-->
+    </row>
   <row>
     <panel id="tablePanel">
+      <title>Examples for Popovers in Tables</title>
       <table id="table">
-        <search>
+        <search id="table_search">
           <query>
-            index="_internal" | append [
-              | makeresults count=100 
-              | eval field1=if((random()%3) == 1, "Option A", "Option B") 
-              | eval field2=if((random()%5) == 1, "Option A", "Option B") 
-              | eval field3=if((random()%3) == 1, "Option A", "Option B")
-              | eval field4=if((random()%2) == 1, "Option A", "Option B") 
-              | rename field2 AS "extra long descriptionalble field name"
-            ]
-            | table "extra long descriptionalble field name" field* 
+              index=_internal clientip=* useragent=*
+              | eval Browser = useragent
+              | eval Betriebssystem = useragent
+              | rename _time AS Zeitpunkt
+              | rename user AS Benutzer
+              | rename clientip AS "IP-Adresse"
+              | rename method AS "HTTP-Methode"
+              | rename status AS "HTTP-Status"
+              | table Zeitpunkt Benutzer "IP-Adresse" "HTTP-Methode" "HTTP-Status" Browser Betriebssystem
           </query>
           <earliest>-24h@h</earliest>
           <latest>now</latest>
@@ -29,13 +147,28 @@
         <option name="drilldown">none</option>
       </table>
     </panel>
+    <panel>
+      <html>
+        <h2>Examples for Popovers in Tables</h2>
+        <section>
+          <ul>
+            <li>Helper script for parsing user agents: https://github.com/faisalman/ua-parser-js</li>
+            <li>Icons from <a class="external" href='https://icons8.com'>https://icons8.com</a> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAEaklEQVRoge1YTWhcVRT+znszKYEabVJLIPWnmUwS0tS0IG7sRkHiOJofDZRIN6UQAtJFVwXBja5cCBY37aaikJLiGJIaTJcu6kIqNoIZk4yZKh1KSJM4zUxnnHk/x8XrTOZN3n3z7sRMLcwHl/dzzr3v+945997zHlBHHXXU8ThBIsPA8tkwE10GuE3ks5XZqviArVRln/R62sVKCWIeWx7+cc7Jqoj74ZIb+dqBDzPhssgqFMDA4b0hVBWeExnEEXhC4JNxZsOEltYAgwEAWjYn9CWFoO73OwwCmHkDrFljkJ8AhstsdIeUAC2t4bPgRzja1FnR99e/o/jgtw9tMVYzhKGWfoSCryPw1IsAgJXUn5iOzSGSmIXeyFLkAekIcJE8s/hhRIS+Az1gg4sCmrNNuHjiYwSb2m2+vQe60ftKN0Y63sb4zQtY9yelBEjPAWaGaZrFY3krtRegZggXj2+TZ2ZbA4Du5iAunfwUvqxcLkkLcCItahZbYKil30be6aUURLzXFrbmhEcIU8hpk9IyuSIxUQoxM4gIzIxUOoVs5h+8efI11z6l/d55/g18Fb0GavD2bqtKITci5T6sm2h/+gXP4wRbAmDdewikJrETiXIQVbkePoLJppR/VRuZWxTKbeRXEH/w1w4/InIUu7J5B+Tz/hKqSiEZP/IrmInfsM5dolOwTS/Ngfzeae19KUFAJDGLxc2YdekgonDv9/vLmIzPSO3KNamF9EbG+M0LNhGlDbDIn71xHsY+uTmwq0kM2FPKLUXW/Umc+mEcI21hDLT3o+OZIwCAWDKO6YXvMRmfkSYP/MerUGEtF8FoZFzbmMXk6nWwZpElv4J8Kgfsq46DeCNz+JLS03mpwR9uPoRu6PabDLBmFtd68hGMlF6barQchR239Nr1YTkVo4FBDHaFEGwJAABiGyuYuj2Lq9Ep6A2GNIddzwGvG9ezZjOuDHyO7oNB2/2+1l70hXpx6sQwzkTOYY03pJ5fk1XIl1NxJbRN3qka7WntwpcjX8CXV6XG3nsBDIwGBm3kd7iUiBjtGZaqRqUFeE2Zgh9rJoa63rLOK1SjADB8LAzWvS+nVUVAVMc42VhnBJqP7PAT1VOdhzpqV43utvJ0wp5Xo25v38mHfISVzTuex/njflyqGhVGwOl3n/FAg6Iotq8uJ2KFYy6ZBecZ397+Di+Fjgr7lPb75tYM8hnNswDpCCiK4rlZzICr0SlEV5dsRJ3IL9xbxMR8RI6PrAAigqIoxWN5K7UXoDcYOBM5ZxNRXo0u3FvE6a/HofnldmO5SawSfl6dx8utxyvOg58Sv4AUBQyL0BpvYGDiNN7veRfDx8LoPNQBAFhaiyFy6zom5iPS5AGXEio4/eqOZGWDYWYN4NEyl0tmxQOrCpRGBXqyLJ/Z+tAvLea85PzGJzFHrlIRIJWg7t/uopq6i7doEKuEJoffptXgif877SKAErWjURF3RQahAGIe+5+IuMtsjj1uEnXUUUcdzvgXz9Ehi2njb/kAAAAASUVORK5CYII="/></li>
+          </ul>
+        
+        </section>
+      </html>
+    </panel>
   </row>
 
   <row id="docu">
-    <!--<html>
+    <html>
+
+
+
         <input type="checkbox" id="components" />
         <label for="components">Documentation</label>
         <div id="readme" class="content"></div>
-    </html>-->
+    </html>
   </row>
 </form>
