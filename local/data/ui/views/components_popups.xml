@@ -83,21 +83,14 @@
             <h2>Popover filled with Token</h2>
           </a>
         </p>
+
+        <p>
+          <a id="popoverInJS" href="#">
+            <span>Popover init in js</span>
+          </a>
+        </p>
       </html>
     </panel>
-    <!--<panel>
-      <html>
-        <h2>Init in HTML</h2>
-        <section>
-          <h3>How to use?</h3>
-          <code>
-            <a href="#" title="See What I Did There?" data-placement="bottom" data-toggle="popover" data-trigger="focus" data-content="It's really not so complicated, you just put this HTML together with the Javascript and CSS, bake for about 10 minutes, and you have context!">
-              <h2>Popover on Focus</h2>
-            </a>
-          </code>
-        </section>
-      </html>
-    </panel>-->
   </row>
    <row>
     <panel>
@@ -111,19 +104,6 @@
         <default>*</default>
       </input>
     </panel>
-    <!--<panel>
-      <html>
-        <h2>
-          Init in JS and add to existing splunk Components
-        </h2>
-        <section>
-          <h3>When to use?</h3>
-        </section>
-        <section>
-          <h3>How to use?</h3>
-        </section>
-      </html>
-    </panel>-->
     </row>
   <row>
     <panel id="tablePanel">
@@ -134,11 +114,11 @@
               index=_internal clientip=* useragent=*
               | eval Browser = useragent
               | eval Betriebssystem = useragent
-              | rename _time AS Zeitpunkt
               | rename user AS Benutzer
               | rename clientip AS "IP-Adresse"
               | rename method AS "HTTP-Methode"
               | rename status AS "HTTP-Status"
+              | eval Zeitpunkt = strftime(_time, "%d.%m.%Y %h:%M:%s")
               | table Zeitpunkt Benutzer "IP-Adresse" "HTTP-Methode" "HTTP-Status" Browser Betriebssystem
           </query>
           <earliest>-24h@h</earliest>

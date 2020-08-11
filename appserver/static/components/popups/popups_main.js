@@ -9,12 +9,27 @@ require([
 
         popovers.initAll();
 
+        $('#popoverInJS').popover({
+            title:"See What I Did There?",
+            placement:"top",
+            trigger:"hover",
+            content:"init in JS!!! :) "
+        });
+
+        var field1 = mvc.Components.get('field1');
+        field1.$el.find('label').popover({
+            title:"See What I Did There?",
+            placement:"top",
+            trigger:"hover",
+            content:"init in JS! :) "
+        }).append('<span class="icon-info-circle info"></span>');
+
 
     var UserAgentTableCellRenderer = TableView.BaseCellRenderer.extend({
 
-        browserPopupTemplate: function(parsedUserAgent) {
+        browserPopupTemplate: function(parsedUserAgent, placement) {
             return `
-            <a href="#" title="User Agents" data-placement="right" data-toggle="popover" data-trigger="hover" data-content="${parsedUserAgent.ua}"></a>
+            <a href="#" title="User Agents" data-placement="${placement}" data-toggle="popover" data-trigger="hover" data-content="${parsedUserAgent.ua}"></a>
             `
         },
 
@@ -64,7 +79,6 @@ require([
             
             if(cell.value) {
                 var parsedUserAgent = this.userAgentParser.setUA(cell.value);
-                console.log(parsedUserAgent.getResult())
 
                 if(cell.field == 'Browser') {
                     var icon = this.getBrowserIcon(parsedUserAgent.getResult());
@@ -72,10 +86,15 @@ require([
                     var icon = this.getOSIcon(parsedUserAgent.getResult());
                 }
 
-                var popupTemplate=$(this.browserPopupTemplate(parsedUserAgent.getResult()));
+                var placement = cell.field === "Betriebssystem" ? 'left' : 'right';
+                var popupTemplate=$(this.browserPopupTemplate(parsedUserAgent.getResult(), placement));
                 popupTemplate.append(icon);
                 
                 $td.html(popupTemplate);
+                // $(icon).popover({
+                //     title: 'haha', 
+                //     content: 'huhu'
+                // });
             }
         }
     });

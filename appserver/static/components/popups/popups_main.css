@@ -6,3 +6,7 @@
 #table table a {
     display: inline-block;
 }
+
+.info {
+    margin: 0 5px;
+}
