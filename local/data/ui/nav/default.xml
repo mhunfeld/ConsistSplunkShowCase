@@ -34,9 +34,10 @@
     <!--<collection label="HTML">
       <view name="testdashboard"/>
     </collection>-->
-    <collection label="Web Components">
+    <!--<collection label="Web Components">-->
       <view name="webcomponents_slider"/>
-    </collection>
+      <view name="playground_svg"/>
+    <!--</collection>-->
   </collection>
   <view name="search"/>
 </nav>
