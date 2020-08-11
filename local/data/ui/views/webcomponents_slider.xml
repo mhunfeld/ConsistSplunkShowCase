@@ -1,4 +1,4 @@
-<dashboard >
+<dashboard script="playground/rangeSlideWebcomponent.js">
   <label>WebComponents</label>
   <description>Examples for using web components in simpleXML</description>
   <row>
