@@ -1,0 +1,105 @@
+<dashboard stylesheet="playground/svg.css">
+  <label>SVG Visualizations</label>
+  <description>different ways of svg Visualizations</description>
+  <fieldset submitButton="false" autoRun="false"></fieldset>
+  <row>
+  <panel>
+    <title>Examples with svg Visualization</title>
+    <input id="color" type="dropdown" token="color">
+      <label>Color</label>
+      <choice value="&quot;#4FA484&quot;">green</choice>
+      <choice value="&quot;#AF575A&quot;">red</choice>
+      <choice value="&quot;#006D9C&quot;">blue</choice>
+      <default>&quot;#AF575A&quot;</default>
+    </input>
+    <input id="percent" type="dropdown" token="percent">
+      <label>Prozent</label>
+      <choice value="0">0%</choice>
+      <choice value="0.2">20%</choice>
+      <choice value="0.5">50%</choice>
+      <choice value="0.8">80%</choice>
+      <choice value="1">100%</choice>
+      <default>0.5</default>
+    </input>
+    <viz type="svg.svg">
+      <title>Simple Example</title>
+      <search>
+        <query>
+          | makeresults 
+          | eval svg_viz_color = $color$ 
+          | eval svg_viz_percent=$percent$ 
+          | `svg_viz_man(svg_viz_color, svg_viz_percent)`
+        </query>
+        <earliest>-1m</earliest>
+        <latest>now</latest>
+        <sampleRatio>1</sampleRatio>
+      </search>
+      <option name="drilldown">none</option>
+      <option name="height">150</option>
+      <option name="refresh.display">progressbar</option>
+      <option name="svg.svg.debug">false</option>
+      <option name="svg.svg.error_message_delay_in_seconds">0</option>
+      <option name="svg.svg.viewbox_height">12</option>
+      <option name="svg.svg.viewbox_min_x">0</option>
+      <option name="svg.svg.viewbox_min_y">0</option>
+      <option name="svg.svg.viewbox_width">58</option>
+      <option name="trellis.enabled">0</option>
+      <option name="trellis.scales.shared">1</option>
+      <option name="trellis.size">medium</option>
+    </viz>
+
+    <input id="degree" type="dropdown" token="degree">
+      <label>Prozent</label>
+      <choice value="-141">lowest</choice>
+      <choice value="-88">low</choice>
+      <choice value="-20">medium</choice>
+      <choice value="44">high</choice>
+      <choice value="100">highest</choice>
+      <default>0.5</default>
+    </input>
+    <viz type="svg.svg">
+      <title>Simple Example</title>
+      <search>
+        <query>
+          | makeresults 
+          | eval svg_viz_degree=$degree$ 
+          | `svg_viz_gauge(svg_viz_degree)`
+        </query>
+        <earliest>-1m</earliest>
+        <latest>now</latest>
+        <sampleRatio>1</sampleRatio>
+      </search>
+      <option name="drilldown">none</option>
+      <option name="height">150</option>
+      <option name="refresh.display">progressbar</option>
+      <option name="svg.svg.debug">false</option>
+      <option name="svg.svg.error_message_delay_in_seconds">0</option>
+      <option name="svg.svg.viewbox_height">12</option>
+      <option name="svg.svg.viewbox_min_x">0</option>
+      <option name="svg.svg.viewbox_min_y">0</option>
+      <option name="svg.svg.viewbox_width">58</option>
+      <option name="trellis.enabled">0</option>
+      <option name="trellis.scales.shared">1</option>
+      <option name="trellis.size">medium</option>
+    </viz>
+  </panel>
+  <panel>
+    <html>
+      <p>
+        Die Beispiele wurden mit der SVG-App umgesetzt: https://splunkbase.splunk.com/app/3815/
+      </p>
+      <p>
+        Es ist eine sehr mächtige App, mit der SVGs sehr einfach manipuliert und mit Suchergebnissen angereichert werden können.
+        Die SVGs werden als XML-Strings in SPL eingebetten und so an die Viz übertragen, 
+        d.h. es können alle möglichen SVGs ohne großartige Konfiguration angezeigt werden. Dies birgt allerdings auch ein paar Nachteile:
+        <ul>
+          <li>die Suchen können sehr komplex werden -> die Manipulation der SVGs sollte deshalb möglichst in Makros ausgelagert werden</li>
+          <li>es ist nach wie vor ein tiefes Verständnis von SVGs und deren Manipulation notwendig</li>
+          <li>die SVGs müssen im SPL escaped werden und sind dadurch sehr fehleranfällig. -> ggf. könnte JS eine einfachere Lösung anbieten</li>
+          <li>die Visualization kann nur ein SVG annehmen, d. h. es können nur SingleValues angezeigt. Sollen mehrere Werte angezeigt werden, muss dies bereits im Suchergebnis so aufbereitet werden, dass am Ende ein SVG herauskommt. Dies wird die Suche allerdings noch komplexer machen (JS als Alternative)</li>
+        </ul>
+      </p>
+    </html>
+  </panel>
+  </row>
+</dashboard>
