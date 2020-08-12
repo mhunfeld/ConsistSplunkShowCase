@@ -1,10 +1,10 @@
-<dashboard stylesheet="playground/svg.css">
+<dashboard stylesheet="playground/svg.css" script="playground/svg.js">
   <label>SVG Visualizations</label>
   <description>different ways of svg Visualizations</description>
   <fieldset submitButton="false" autoRun="false"></fieldset>
   <row>
   <panel>
-    <title>Examples with svg Visualization</title>
+    <title>Examples with SVG Custom Visualization App</title>
     <input id="color" type="dropdown" token="color">
       <label>Color</label>
       <choice value="&quot;#4FA484&quot;">green</choice>
@@ -99,6 +99,50 @@
           <li>die Visualization kann nur ein SVG annehmen, d. h. es können nur SingleValues angezeigt. Sollen mehrere Werte angezeigt werden, muss dies bereits im Suchergebnis so aufbereitet werden, dass am Ende ein SVG herauskommt. Dies wird die Suche allerdings noch komplexer machen (JS als Alternative)</li>
         </ul>
       </p>
+    </html>
+  </panel>
+  </row>
+
+  <row>
+  <panel>
+    <title>Examples with JS</title>
+    <search id="jsSimpleExampleSearch">
+        <query>
+          | makeresults 
+          | eval color="#006D9C"
+          | eval percent="0.7"
+        </query>
+        <earliest>-1m</earliest>
+        <latest>now</latest>
+    </search>
+    <html>
+      <div id="svgInJSSimple"></div>
+    </html>
+  </panel>
+  <panel>
+    <html>
+      Beispiel wie mit der App: Das SVG kann nur einen Wert darstellen
+    </html>
+  </panel>
+  <panel>
+    <title>Examples with JS</title>
+    <search id="jsAdvancedExampleSearch">
+        <query>
+          | makeresults count=4
+          | streamstats count
+          | eval color=case(count==1, "#006D9C", count==2, "#4FA484", count==3, "#EC9960", count==4, "#AF575A")
+          | eval percent=case(count==1, "0.1", count==2, "0.3", count==3, "0.2", count==4, "0.2")
+        </query>
+        <earliest>-1m</earliest>
+        <latest>now</latest>
+    </search>
+    <html>
+      <div id="svgInJSAdvanced"></div>
+    </html>
+  </panel>
+  <panel>
+    <html>
+      In diesem Beispiel können mehrere Werte in einem SVG dargestellt werden
     </html>
   </panel>
   </row>
