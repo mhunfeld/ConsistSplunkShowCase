@@ -5,7 +5,7 @@
     <collection label="Components">
       <view name="components_datepicker"/>
       <view name="components_rangeSlider"/>
-      <view name="components_popups"/>
+      <view name="components_popovers"/>
       <view name="components_map"/>
       <view name="components_filterprofiles"/>
     </collection>
@@ -13,31 +13,20 @@
       <view name="extensions_tables"/>
       <view name="extensions_inputs"/>
     </collection>
-    <!--<collection label="utils">
-      <view name="extensions_tables"/>
-    </collection>-->
   </collection>
-  <!--<collection label="Visualizations">
-    <view name="extensions_tables"/>
-    <view name="extensions_inputs"/>
-  </collection>-->
   <collection label="Snippets">
-    <collection label="CSS">
-      <view name="snippet_company_ci"/>
-    </collection>
     <collection label="JS">
       <view name="snippets_translations"/>
       <!--<view name="snippets_dynamic_searches"/>-->
     </collection>
   </collection>
+  <collection label="Dashboards">
+      <view name="dashboards_corporate_ci"/>
+      <view name="dashboards_tables"/>
+  </collection>
   <collection label="Playground">
-    <!--<collection label="HTML">
-      <view name="testdashboard"/>
-    </collection>-->
-    <!--<collection label="Web Components">-->
       <view name="webcomponents_slider"/>
       <view name="playground_svg"/>
-    <!--</collection>-->
   </collection>
   <view name="search"/>
 </nav>

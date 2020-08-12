@@ -105,47 +105,8 @@
       </input>
     </panel>
     </row>
-  <row>
-    <panel id="tablePanel">
-      <title>Examples for Popovers in Tables</title>
-      <table id="table">
-        <search id="table_search">
-          <query>
-              index=_internal clientip=* useragent=*
-              | eval Browser = useragent
-              | eval Betriebssystem = useragent
-              | rename user AS Benutzer
-              | rename clientip AS "IP-Adresse"
-              | rename method AS "HTTP-Methode"
-              | rename status AS "HTTP-Status"
-              | eval Zeitpunkt = strftime(_time, "%d.%m.%Y %h:%M:%s")
-              | table Zeitpunkt Benutzer "IP-Adresse" "HTTP-Methode" "HTTP-Status" Browser Betriebssystem
-          </query>
-          <earliest>-24h@h</earliest>
-          <latest>now</latest>
-        </search>
-        <option name="drilldown">none</option>
-      </table>
-    </panel>
-    <panel>
-      <html>
-        <h2>Examples for Popovers in Tables</h2>
-        <section>
-          <ul>
-            <li>Helper script for parsing user agents: https://github.com/faisalman/ua-parser-js</li>
-            <li>Icons from <a class="external" href='https://icons8.com'>https://icons8.com</a> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAEaklEQVRoge1YTWhcVRT+znszKYEabVJLIPWnmUwS0tS0IG7sRkHiOJofDZRIN6UQAtJFVwXBja5cCBY37aaikJLiGJIaTJcu6kIqNoIZk4yZKh1KSJM4zUxnnHk/x8XrTOZN3n3z7sRMLcwHl/dzzr3v+945997zHlBHHXXU8ThBIsPA8tkwE10GuE3ks5XZqviArVRln/R62sVKCWIeWx7+cc7Jqoj74ZIb+dqBDzPhssgqFMDA4b0hVBWeExnEEXhC4JNxZsOEltYAgwEAWjYn9CWFoO73OwwCmHkDrFljkJ8AhstsdIeUAC2t4bPgRzja1FnR99e/o/jgtw9tMVYzhKGWfoSCryPw1IsAgJXUn5iOzSGSmIXeyFLkAekIcJE8s/hhRIS+Az1gg4sCmrNNuHjiYwSb2m2+vQe60ftKN0Y63sb4zQtY9yelBEjPAWaGaZrFY3krtRegZggXj2+TZ2ZbA4Du5iAunfwUvqxcLkkLcCItahZbYKil30be6aUURLzXFrbmhEcIU8hpk9IyuSIxUQoxM4gIzIxUOoVs5h+8efI11z6l/d55/g18Fb0GavD2bqtKITci5T6sm2h/+gXP4wRbAmDdewikJrETiXIQVbkePoLJppR/VRuZWxTKbeRXEH/w1w4/InIUu7J5B+Tz/hKqSiEZP/IrmInfsM5dolOwTS/Ngfzeae19KUFAJDGLxc2YdekgonDv9/vLmIzPSO3KNamF9EbG+M0LNhGlDbDIn71xHsY+uTmwq0kM2FPKLUXW/Umc+mEcI21hDLT3o+OZIwCAWDKO6YXvMRmfkSYP/MerUGEtF8FoZFzbmMXk6nWwZpElv4J8Kgfsq46DeCNz+JLS03mpwR9uPoRu6PabDLBmFtd68hGMlF6barQchR239Nr1YTkVo4FBDHaFEGwJAABiGyuYuj2Lq9Ep6A2GNIddzwGvG9ezZjOuDHyO7oNB2/2+1l70hXpx6sQwzkTOYY03pJ5fk1XIl1NxJbRN3qka7WntwpcjX8CXV6XG3nsBDIwGBm3kd7iUiBjtGZaqRqUFeE2Zgh9rJoa63rLOK1SjADB8LAzWvS+nVUVAVMc42VhnBJqP7PAT1VOdhzpqV43utvJ0wp5Xo25v38mHfISVzTuex/njflyqGhVGwOl3n/FAg6Iotq8uJ2KFYy6ZBecZ397+Di+Fjgr7lPb75tYM8hnNswDpCCiK4rlZzICr0SlEV5dsRJ3IL9xbxMR8RI6PrAAigqIoxWN5K7UXoDcYOBM5ZxNRXo0u3FvE6a/HofnldmO5SawSfl6dx8utxyvOg58Sv4AUBQyL0BpvYGDiNN7veRfDx8LoPNQBAFhaiyFy6zom5iPS5AGXEio4/eqOZGWDYWYN4NEyl0tmxQOrCpRGBXqyLJ/Z+tAvLea85PzGJzFHrlIRIJWg7t/uopq6i7doEKuEJoffptXgif877SKAErWjURF3RQahAGIe+5+IuMtsjj1uEnXUUUcdzvgXz9Ehi2njb/kAAAAASUVORK5CYII="/></li>
-          </ul>
-        
-        </section>
-      </html>
-    </panel>
-  </row>
-
   <row id="docu">
     <html>
-
-
-
         <input type="checkbox" id="components" />
         <label for="components">Documentation</label>
         <div id="readme" class="content"></div>
