@@ -1,3 +1,23 @@
-/* #zeiger {
-    transform-origin: 256px 223px;
-} */
+#svgInJSAdvanced svg {
+    width: 65%;
+    float: left;
+}
+
+#svgInJSAdvanced ul {
+    width: 25%;
+    list-style: none;
+    border: solid 3px #f2f4f5;
+    padding: 10px;
+    float: right;
+}
+
+.legendEntry_color {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.legendEntry_title {
+    margin: 10px;
+}

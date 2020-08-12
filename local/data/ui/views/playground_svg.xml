@@ -124,12 +124,15 @@
       Beispiel wie mit der App: Das SVG kann nur einen Wert darstellen
     </html>
   </panel>
+  </row>
+  <row>
   <panel>
     <title>Examples with JS</title>
     <search id="jsAdvancedExampleSearch">
         <query>
           | makeresults count=4
           | streamstats count
+          | eval title=case(count==1, "Group A", count==2, "Group B", count==3, "Group C", count==4, "Group D")
           | eval color=case(count==1, "#006D9C", count==2, "#4FA484", count==3, "#EC9960", count==4, "#AF575A")
           | eval percent=case(count==1, "0.1", count==2, "0.3", count==3, "0.2", count==4, "0.2")
         </query>

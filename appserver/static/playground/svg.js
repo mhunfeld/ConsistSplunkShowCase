@@ -57,6 +57,20 @@ require([
                 return template;
     }
 
+    var getLegend = function(id, data) {
+        return /*html*/`<ul id="${id}_legend" >
+            ${data.map(getLegendEntry).join('')}
+        </ul>`
+    }
+
+    var getLegendEntry = function(item, i) {
+        return /*html*/`
+            <li>
+                <span class="legendEntry_color" style="background-color:${item.color}"></span><span class="legendEntry_title">${item.title}</span>
+            </li>
+        `
+    }
+
 
     var simpleSearch = mvc.Components.getInstance('jsSimpleExampleSearch');
     var simpleResults = simpleSearch.data("results", {
@@ -85,6 +99,7 @@ require([
         var data = advancedResults.collection().toJSON();
         $('#svgInJSAdvanced').empty();
         $('#svgInJSAdvanced').append(personSVGAdvanced("svgInJSAdvanced", data));
+        $('#svgInJSAdvanced').append(getLegend('svgInJSAdvanced', data));
     });
 
 
