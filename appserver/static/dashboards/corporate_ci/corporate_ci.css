@@ -34,16 +34,19 @@
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
+.dashboard-row {
+    margin: 20px 0;
+}
+
+#layout1 .dashboard-row .dashboard-panel {
+    margin: 0; 
+}
+
 
 /*padding panels*/
 
-#info {
-    margin: 10px 0;
-}
-
 #kpi_row {
     display: flex;
-    margin-bottom: 20px;
 }
 
 #kpi_row .dashboard-panel {
@@ -67,6 +70,16 @@
 }
 
 /*table*/
+
+#popover_row .dashboard-cell:first-child {
+    margin: 0 10px 0 0;
+    width: calc(70% - 10px) !important;
+}
+
+#popover_row .dashboard-cell:last-child {
+    margin: 0 0 0 10px;
+    width: calc(30% - 10px) !important;
+}
 
 /* bolder table headlines*/
 #dashboard1 th a {
@@ -96,4 +109,9 @@
 
 #dashboard1 .popover h2, #dashboard1 .popover h3 {
     margin: 0;
+}
+
+
+#dashboard1 section {
+    margin: 30px 10px;
 }

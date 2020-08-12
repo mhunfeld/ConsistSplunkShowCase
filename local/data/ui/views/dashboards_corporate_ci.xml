@@ -122,7 +122,7 @@
       </table>
     </panel>
   </row>
-  <row>
+  <row id="popover_row">
     <panel id="tablePanel">
       <title>Examples for Popovers in Tables</title>
       <table id="table">
