@@ -1,7 +1,7 @@
 <form stylesheet="css_snippets/css/corporate_ci.css">
+  <label>Company CI</label>
   <row id="info">
     <html>
-      <h2>Company CI</h2>
       <h4>
       Examples for customizing ui of Splunk dashboards - SimpleXML and CSS only
       </h4>
