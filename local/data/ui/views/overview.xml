@@ -4,73 +4,16 @@
 
 <row>
     <panel>
-      <!--<html>
-        <input type="checkbox" id="components" />
-        <label for="components">Components</label>
-        <div class="content">
-          <p>
-          Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-          ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-          amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-          odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
-          </p>
+      <html>
+        <div id="requirements">
+          <h1>Voraussetzungen</h1>
+          Diese App nutzt in einigen Dashboards Visualisierungen aus SplunkBase:
+            <ul>
+              <li><span>Snippets > CSS > Company-CI: </span> <a href="https://splunkbase.splunk.com/app/4378/">Semicircle Donut Chart</a></li>
+              <li><span>Playground > SVG-Visualisations: </span> <a href="https://splunkbase.splunk.com/app/3815/">Scalable Vector Graphics - Custom Visualization</a></li>
+            </ul>
         </div>
-
-        <input type="checkbox" id="extensions" />
-        <label for="extensions">Extensions</label>
-        <div class="content">
-          <p>
-          Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-          ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-          amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-          odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
-          </p>
-        </div>
-
-        <input type="checkbox" id="visualizations" />
-        <label for="visualizations">Visualizations</label>
-        <div class="content">
-          <p>
-          Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-          ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-          amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-          odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
-          </p>
-        </div>
-
-        <input type="checkbox" id="snippets" />
-        <label for="snippets">Snippets</label>
-        <div class="content">
-          <p>
-          Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-          ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-          amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-          odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
-          </p>
-        </div>
-
-        <input type="checkbox" id="html" />
-        <label for="html">HTML</label>
-        <div class="content">
-          <p>
-          Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-          ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-          amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-          odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
-          </p>
-        </div>
-
-        <input type="checkbox" id="webcomponents" />
-        <label for="webcomponents">Web-Components</label>
-        <div class="content">
-          <p>
-          Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-          ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-          amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-          odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
-          </p>
-        </div>
-      </html>-->
+      </html>
     </panel>
   </row>
 </dashboard>

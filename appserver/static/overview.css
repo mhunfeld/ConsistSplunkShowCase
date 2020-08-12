@@ -46,3 +46,8 @@
     display: block;
 	transition: ease .5s;
 }
+
+#requirements li span {
+    margin: 0 5px;
+    font-weight: bold;
+}
