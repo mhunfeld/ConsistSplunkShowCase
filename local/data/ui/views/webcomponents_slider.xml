@@ -13,18 +13,42 @@
       <title>Slider as Range slider</title>
 
       <html>
-      
-        <co-range-slider id="sliderWithValues" token="sliderValues_tok" searchWhenChanged="true" depends="?show?">
-          <min>0</min>
-          <max>96</max>
-          <step>12</step>
-          <defaultValue>24</defaultValue>
-          <prefix>posts > </prefix>
-          <suffix></suffix>
-          <labelPrefix>mindestens </labelPrefix>
-          <labelSuffix> Einträge</labelSuffix>
-          <parentElement>row2</parentElement>
-        </co-range-slider>
+        <div>
+          <co-range-slider id="sliderWithValues" token="sliderValues_tok" searchWhenChanged="true" depends="?show?">
+            <min>0</min>
+            <max>96</max>
+            <step>12</step>
+            <defaultValue>24</defaultValue>
+            <prefix>posts > </prefix>
+            <suffix></suffix>
+            <labelPrefix>mindestens </labelPrefix>
+            <labelSuffix> Einträge</labelSuffix>
+            <parentElement>row2</parentElement>
+          </co-range-slider>
+        </div>
+        <div>
+            <p>Bitte den Bearbeiten-Modus öffnen, um die Besonderheit zu sehen</p>
+            <p>Die Initialisierung erfolgt i SimpleXML:</p>
+
+            <pre><code>
+              <![CDATA[
+              <dashboard script="playground/rangeSlideWebcomponent.js">
+              ...
+              <co-range-slider id="sliderWithValues" token="sliderValues_tok" searchWhenChanged="true" depends="?show?">
+                <min>0</min>
+                <max>96</max>
+                <step>12</step>
+                <defaultValue>24</defaultValue>
+                <prefix>posts > </prefix>
+                <suffix></suffix>
+                <labelPrefix>mindestens </labelPrefix>
+                <labelSuffix> Einträge</labelSuffix>
+                <parentElement>row2</parentElement>
+              </co-range-slider>
+              ...
+              ]]>
+            </code></pre>
+        </div>
       </html>
     </panel>
   </row>
