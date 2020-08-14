@@ -38,6 +38,24 @@ require([
 
         $('#customRangeDatepicker').append(rangeDatepicker.el);
 
+
+        var extendedDatepicker = new Datepicker({
+            label: 'Datepicker with Options',
+            id: 'customExtendedDatepicker',
+            token: 'customextendeddate_tok',
+            asRange: true,
+            datepickerOptions: {
+                timePicker: true,
+                timePickerIncrement: 15,
+                timePicker24Hour: true,
+            }
+        });
+        
+
+        extendedDatepicker.render();
+
+        $('#customExtendedDatepicker').append(extendedDatepicker.el);
+
         var readMeView = new ReadMeView({
             path: '/ConsistSplunkToolbox/components/datepicker'
         });

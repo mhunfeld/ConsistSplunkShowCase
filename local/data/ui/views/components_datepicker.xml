@@ -21,6 +21,31 @@
       <html>
         <div id="customRangeDatepicker"></div>
       </html>
+      <html>
+        <div id="customExtendedDatepicker"></div>
+        <div>Bei der Initialisierung eines Datepickers können alle Options des Original DateRangePickers verwendet werden. <br />
+         Auflistung und Dokumentation der Options unter <a href="http://www.daterangepicker.com/#options"> Daterangepicker Options</a><br/>
+         Die Options für den DaterangePicker können unter datepickerOptions als Obejct übergeben werden. <br/>
+         Diese Options werden direkt an den Datepicker übertragen und überschreiben die Default Einstellungen.<br/>
+        Im Beispiel wurde der Timepicker für Studen genaue Zeitauswahl aktiviert:
+
+          <pre><code>
+              <![CDATA[
+               var extendedDatepicker = new Datepicker({
+                  label: 'Datepicker with Options',
+                  id: 'customExtendedDatepicker',
+                  token: 'customextendeddate_tok',
+                  asRange: true,
+                  datepickerOptions: {
+                      timePicker: true,
+                      timePickerIncrement: 15,
+                      timePicker24Hour: true,
+                  }
+              });
+              ]]>
+            </code></pre>
+        </div>
+      </html>
     </panel>
   </row>
 
