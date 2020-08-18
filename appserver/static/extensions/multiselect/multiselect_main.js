@@ -3,13 +3,13 @@
 
 require([
     '/static/app/ConsistSplunkToolbox/extensions/multiselect/multiselect.js',
-    '/static/app/ConsistSplunkShowCase/helper/ReadMeView.js',
+    '/static/app/ConsistSplunkShowCase/helper/ReadmeView.js',
     '/static/app/ConsistSplunkToolbox/utils/showtokens.js',
     'css!/static/app/ConsistSplunkToolbox/material-iconfont/material-icons.css',
     'splunkjs/mvc/simplexml/ready!'
 ], function( 
         Multiselect,
-        ReadMeView
+        ReadmeView
     ) {
 
 
@@ -41,7 +41,7 @@ require([
         });
 
 
-        var readMeView = new ReadMeView({
+        var readMeView = new ReadmeView({
             path: '/ConsistSplunkToolbox/extensions/multiselect'
         });
 

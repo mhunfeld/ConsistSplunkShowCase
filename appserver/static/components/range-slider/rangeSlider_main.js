@@ -2,14 +2,14 @@ require([
     'underscore',
     'jquery',
     '/static/app/ConsistSplunkToolbox/components/range-slider/rangeSlider.js',
-    '/static/app/ConsistSplunkShowCase/helper/ReadMeView.js',
+    '/static/app/ConsistSplunkShowCase/helper/ReadmeView.js',
     '/static/app/ConsistSplunkToolbox/utils/showtokens.js',
     'splunkjs/mvc/simplexml/ready!'
 ], function( 
         _,
         $,
         RangeSlider,
-        ReadMeView
+        ReadmeView
     ){
 
 
@@ -48,7 +48,7 @@ require([
 
 
 
-        var readMeView = new ReadMeView({
+        var readMeView = new ReadmeView({
             path: '/ConsistSplunkToolbox/components/range-slider'
         });
     

@@ -2,14 +2,14 @@ require([
     'underscore',
     'jquery',
     '/static/app/ConsistSplunkToolbox/components/datepicker/datepicker.js',
-    '/static/app/ConsistSplunkShowCase/helper/ReadMeView.js',
+    '/static/app/ConsistSplunkShowCase/helper/ReadmeView.js',
     '/static/app/ConsistSplunkToolbox/utils/showtokens.js',
     'splunkjs/mvc/simplexml/ready!'
 ], function( 
         _,
         $,
         Datepicker,
-        ReadMeView
+        ReadmeView
     ){
 
 
@@ -56,7 +56,7 @@ require([
 
         $('#customExtendedDatepicker').append(extendedDatepicker.el);
 
-        var readMeView = new ReadMeView({
+        var readMeView = new ReadmeView({
             path: '/ConsistSplunkToolbox/components/datepicker'
         });
     

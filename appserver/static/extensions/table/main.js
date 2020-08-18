@@ -1,8 +1,8 @@
 require([
     '/static/app/ConsistSplunkToolbox/extensions/table/src/table.js',
-    '/static/app/ConsistSplunkShowCase/helper/ReadMeView.js',
+    '/static/app/ConsistSplunkShowCase/helper/ReadmeView.js',
     'splunkjs/mvc/simplexml/ready!'
-], function(Table, ReadMeView) {
+], function(Table, ReadmeView) {
 
     new Table('renameTableHeader')
         .renameHeader('extra long descriptionalble field name', 'field 2')
@@ -21,7 +21,7 @@ require([
         .addFixedColumns(2);
 
 
-    var readMeView = new ReadMeView({
+    var readMeView = new ReadmeView({
         path: '/ConsistSplunkToolbox/extensions/table'
     });
 
