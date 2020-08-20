@@ -6,6 +6,7 @@
       <view name="components_datepicker"/>
       <view name="components_rangeSlider"/>
       <view name="components_popovers"/>
+      <view name="components_popup"/>
       <view name="components_map"/>
       <view name="components_filterprofiles"/>
     </collection>

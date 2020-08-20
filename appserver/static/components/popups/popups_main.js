@@ -1,26 +1,25 @@
 require([
-        'splunkjs/mvc',
-        "splunkjs/mvc/tableview",
-        '/static/app/ConsistSplunkToolbox/components/popovers/popovers.js',
-        'splunkjs/mvc/simplexml/ready!'
-    ],
-    function(mvc, TableView, popovers, UAParser) {
+    'jquery',
+    'splunkjs/mvc',
+    '/static/app/ConsistSplunkToolbox/components/popups/popups.js',
+    'splunkjs/mvc/simplexml/ready!'
+],
+function($, mvc, Popup) {
 
-        popovers.initAll();
 
-        $('#popoverInJS').popover({
-            title:"See What I Did There?",
-            placement:"top",
-            trigger:"hover",
-            content:"init in JS!!! :) "
-        });
+    var table = mvc.Components.get('table');
 
-        var field1 = mvc.Components.get('field1');
-        field1.$el.find('label').popover({
-            title:"See What I Did There?",
-            placement:"top",
-            trigger:"hover",
-            content:"init in JS! :) "
-        }).append('<span class="icon-info-circle info"></span>');
-
+    var popup = new Popup({
+        title: "hallo",
+        body: table.el
     });
+
+    popup.render();
+
+    $('#dashboard1').append(popup.$el);
+
+    $('#showPopup').on('click', function() {
+        popup.show();
+    })
+
+});

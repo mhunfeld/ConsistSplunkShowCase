@@ -1,0 +1,57 @@
+<form script="components/popups/popups_main.js" stylesheet="overview.css" theme="light">
+  <label>Popups </label>
+    <row>
+        <panel>
+            <html>
+                <section>
+                <p>Mit einem Popup können komplexere Informationen in einem Kontext angezeigt werden., z. B. eine unsichtbare View aus SimpleXML
+                kann per ID angesprochen und in den Body des Popups eingefügt werden.
+                </p>
+                <p>
+                    Der Content eines Popovers kann auch aus komplexeren HTML-Strukturen bestehen - je nach dem, sollte dann aber eher auf ein Popup zurückgegriffen werden.
+                </p>
+                <p>  
+                    Die Erweiterung basiert wiederum auf Bootstrap Modals: <a class="external" href="https://getbootstrap.com/2.3.2/javascript.html#modals">Doku zu Bootstrap</a>
+                </p>
+                </section>
+            </html>
+        </panel>
+    </row>
+    <row id="info">
+        <panel>
+        <title>Popups</title>
+        <html>
+            <button id="showPopup"> 
+            show Popup on Click
+            </button>
+        </html>
+        </panel>
+  </row>
+   <row>
+    <panel depends="$hidden$">
+    <table id="table">
+        <search id="table_search">
+          <query>
+              index=_internal clientip=* useragent=*
+              | rename user AS Benutzer
+              | rename clientip AS "IP-Adresse"
+              | rename method AS "HTTP-Methode"
+              | rename status AS "HTTP-Status"
+              | eval Zeitpunkt = strftime(_time, "%d.%m.%Y %h:%M:%s")
+              | table Zeitpunkt Benutzer "IP-Adresse" "HTTP-Methode" "HTTP-Status"
+          </query>
+          <earliest>-24h@h</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="drilldown">none</option>
+      </table>
+    </panel>
+  </row>
+  <row id="docu">
+    <html>
+        <input type="checkbox" id="components" />
+        <label for="components">Documentation</label>
+        <div id="readme" class="content"></div>
+    </html>
+  </row>
+</form>
