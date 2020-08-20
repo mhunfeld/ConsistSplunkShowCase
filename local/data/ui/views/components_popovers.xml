@@ -1,4 +1,4 @@
-<form script="components/popups/popups_main.js" stylesheet="overview.css,components/popups/popups_main.css" theme="light">
+<form script="components/popovers/popovers_main.js" stylesheet="overview.css,components/popovers/popovers_main.css" theme="light">
   <label>Popovers </label>
   <init>
     <set token="popoverContent">Content from a Token</set>
