@@ -1,12 +1,6 @@
 /*FONTS*/
 
 @font-face { 
-    font-family: 'Abril Fatface';
-    src: url('/static/app/ConsistSplunkShowCase/dashboards/corporate_ci/fonts/Abril_Fatface/AbrilFatface-Regular.ttf') 
-    format('truetype'); 
-}
-
-@font-face { 
     font-family: 'Open Sans';
     src: url('/static/app/ConsistSplunkShowCase/dashboards/corporate_ci/fonts/Open_Sans/OpenSans-Regular.ttf') 
     format('truetype'); 
@@ -22,11 +16,20 @@
 }
 
 /* bolder headlines*/
-#dashboard1 h2, #dashboard1 h3 {
-    font-family: Abril Fatface;
+#dashboard1 h2 {
+    font-family: Open Sans;
+    font-weight: bolder;
     font-size: 22px;
     line-height: 22px;
     margin: 23px 0 0;
+}
+
+#dashboard1 h3 {
+    font-family: Open Sans;
+    font-weight: bolder;
+    font-size: 18px;
+    line-height: 18px;
+    margin: 18px 0 0;
 }
 
 .dashboard-cell {
@@ -83,9 +86,9 @@
 
 /* bolder table headlines*/
 #dashboard1 th a {
-    font-family: Abril Fatface;
-    font-weight: 700 !important;
-    font-size: 16px !important;
+    font-family: Open Sans;
+    font-weight: bolder;
+    font-size: 14px !important;
 }
 
 /* formatting table header*/
@@ -100,11 +103,15 @@
     padding: 10px 25px 10px 10px!important;
 }
 
+.table td.align-center {
+    text-align: center;
+}
+
 /*bold font in first column*/
 #dashboard1 table td:first-child {
     font-family: Open Sans;
     font-weight: bold !important;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 #dashboard1 .popover h2, #dashboard1 .popover h3 {

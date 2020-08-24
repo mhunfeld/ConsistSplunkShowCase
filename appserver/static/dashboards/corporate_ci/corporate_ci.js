@@ -73,11 +73,8 @@ var UserAgentTableCellRenderer = TableView.BaseCellRenderer.extend({
             var popupTemplate=$(this.browserPopupTemplate(parsedUserAgent.getResult(), placement));
             popupTemplate.append(icon);
             
+            $td.addClass('align-center')
             $td.html(popupTemplate);
-            // $(icon).popover({
-            //     title: 'haha', 
-            //     content: 'huhu'
-            // });
         }
     }
 });
