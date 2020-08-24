@@ -10,7 +10,7 @@ function($, mvc, Popup) {
     var table = mvc.Components.get('table');
 
     var popup = new Popup({
-        title: "hallo",
+        title: "Popup mit Table",
         body: table.el
     });
 

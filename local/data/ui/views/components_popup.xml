@@ -7,9 +7,6 @@
                 <p>Mit einem Popup können komplexere Informationen in einem Kontext angezeigt werden., z. B. eine unsichtbare View aus SimpleXML
                 kann per ID angesprochen und in den Body des Popups eingefügt werden.
                 </p>
-                <p>
-                    Der Content eines Popovers kann auch aus komplexeren HTML-Strukturen bestehen - je nach dem, sollte dann aber eher auf ein Popup zurückgegriffen werden.
-                </p>
                 <p>  
                     Die Erweiterung basiert wiederum auf Bootstrap Modals: <a class="external" href="https://getbootstrap.com/2.3.2/javascript.html#modals">Doku zu Bootstrap</a>
                 </p>
@@ -32,12 +29,12 @@
     <table id="table">
         <search id="table_search">
           <query>
-              index=_internal clientip=* useragent=*
+              index=_internal clientip=* 
               | rename user AS Benutzer
               | rename clientip AS "IP-Adresse"
               | rename method AS "HTTP-Methode"
               | rename status AS "HTTP-Status"
-              | eval Zeitpunkt = strftime(_time, "%d.%m.%Y %h:%M:%s")
+              | eval Zeitpunkt = strftime(_time, "%d.%m.%Y %H:%M:%S")
               | table Zeitpunkt Benutzer "IP-Adresse" "HTTP-Methode" "HTTP-Status"
           </query>
           <earliest>-24h@h</earliest>
