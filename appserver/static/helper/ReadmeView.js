@@ -22,13 +22,27 @@ define(['backbone',
     'css!/static/app/ConsistSplunkShowCase/vendor/google-code-prettify/prettify.css'
 ], function(Backbone, showdown) {
 
+    //Info on https://github.com/showdownjs/showdown/wiki/Add-default-classes-for-each-HTML-element    
+    //in our case we use bootstrap default classes, but you can insert custom classes with custom css
+    const elementToClassMapping = {
+        table: 'table table-bordered'
+      }
+      
+    const customClassBinding = Object.keys(elementToClassMapping)
+        .map(key => ({
+            type: 'output',
+            regex: new RegExp(`<${key}(.*)>`, 'g'),
+            replace: `<${key} class="${elementToClassMapping[key]}" $1>`
+        }));
+      
+
     var ReadmeView = Backbone.View.extend({
         
 
         initialize: function(options) {
             this.converter = new showdown.Converter({ 
                           tables: true, 
-                          extensions: ['prettify']
+                          extensions: ['prettify', customClassBinding]
                       });
 
             this.path = options.path;
