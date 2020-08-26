@@ -53,7 +53,7 @@ define(['backbone',
             return $.ajax({
                 url: this.baseUrl + this.path + "/README.md",
                 beforeSend: function( xhr ) {
-                  xhr.overrideMimeType( "text/plain; charset=x-user-defined" );
+                  xhr.overrideMimeType( "application/x-www-form-urlencoded;charset=utf-8" );
                 }
             });
         }
