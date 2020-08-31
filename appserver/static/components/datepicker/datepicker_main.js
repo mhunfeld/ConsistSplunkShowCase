@@ -17,26 +17,18 @@ require([
             label: 'Datepicker as Single Date',
             id: 'customSingleDatepicker',
             token: 'customdate_tok',
-            default: 'now'
+            default: 'now',
+            el: '#customSingleDatepicker'
         });
-        
-
-        singelDatepicker.render();
-
-        $('#customSingleDatepicker').append(singelDatepicker.el);
 
 
         var rangeDatepicker = new Datepicker({
             label: 'Datepicker as Range Picker',
             id: 'customRangeDatepicker',
             token: 'customrangedate_tok',
-            asRange: true
+            asRange: true, 
+            el: '#customRangeDatepicker'
         });
-        
-
-        rangeDatepicker.render();
-
-        $('#customRangeDatepicker').append(rangeDatepicker.el);
 
 
         var extendedDatepicker = new Datepicker({
@@ -44,6 +36,7 @@ require([
             id: 'customExtendedDatepicker',
             token: 'customextendeddate_tok',
             asRange: true,
+            el: '#customExtendedDatepicker',
             datepickerOptions: {
                 timePicker: true,
                 timePickerIncrement: 15,
@@ -52,15 +45,10 @@ require([
         });
         
 
-        extendedDatepicker.render();
-
-        $('#customExtendedDatepicker').append(extendedDatepicker.el);
-
         var readMeView = new ReadmeView({
-            path: '/ConsistSplunkToolbox/components/datepicker'
+            path: '/ConsistSplunkToolbox/components/datepicker',
+            el: '#readme'
         });
-    
-        $('#readme').append(readMeView.render().$el);
 
     });
 

@@ -47,19 +47,21 @@ define(['backbone',
 
             this.path = options.path;
             this.baseUrl = "../../../static/app/";
+            
+            this.getReadMe()
+            .done(function( readMeContent ) {
+              this.readMeAsHtml = this.converter.makeHtml(readMeContent);
+              this.readMeAsHtml = this.readMeAsHtml.replace(/\.\//g, this.baseUrl + this.path + '/');
+              PR.prettyPrint();
+              this.render();
+            }.bind(this));
+
+           // this.render();
         }, 
 
         render: function() {
             this.$el.empty();
-
-            this.getReadMe()
-            .done(function( readMeContent ) {
-              readMeAsHtml = this.converter.makeHtml(readMeContent);
-              readMeAsHtml = readMeAsHtml.replace(/\.\//g, this.baseUrl + this.path + '/')
-              this.$el. append(readMeAsHtml);
-              PR.prettyPrint();
-            }.bind(this));
-
+            this.$el.append(this.readMeAsHtml);
             return this;
         }, 
 
