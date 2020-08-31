@@ -1,10 +1,10 @@
 require([
         'splunkjs/mvc',
-        "splunkjs/mvc/tableview",
         '/static/app/ConsistSplunkToolbox/components/popovers/popovers.js',
+        '/static/app/ConsistSplunkShowCase/helper/ReadmeView.js',
         'splunkjs/mvc/simplexml/ready!'
     ],
-    function(mvc, TableView, popovers, UAParser) {
+    function(mvc, popovers, ReadmeView) {
 
         popovers.initAll();
 
@@ -31,7 +31,10 @@ require([
         }).append('<span class="icon-info-circle info"></span>');
 
 
-
+        var readMeView = new ReadmeView({
+            path: '/ConsistSplunkToolbox/components/popovers',
+            el: '#readme'
+        });
 
 
     });
