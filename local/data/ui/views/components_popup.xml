@@ -16,12 +16,28 @@
     </row>
     <row id="info">
         <panel>
-        <title>Popups</title>
-        <html>
-            <button id="showPopup"> 
-            show Popup on Click
-            </button>
-        </html>
+          <title>Popups</title>
+          <html>
+              <button id="showPopup1" class="btn"> 
+                show Popup1 on Click
+              </button>
+
+          </html>
+        </panel>
+        <panel>
+          <input id="field1" type="multiselect" token="field1">
+            <label>Field 1</label>
+            <choice value="*">Alle</choice>
+            <choice value="value2">Wert 2</choice>
+            <choice value="value3">Wert 3</choice>
+            <choice value="value4">Wert 4</choice>
+            <default>*</default>
+          </input>
+          <html>
+               <button id="showPopup2" class="btn"> 
+                  show Popup2 on Click
+              </button>
+          </html>
         </panel>
   </row>
    <row>
@@ -42,6 +58,14 @@
         </search>
         <option name="drilldown">none</option>
       </table>
+    </panel>
+
+    <panel depends="$hidden$">
+      <html id="popupTemplate">
+       <div>
+        <div>hier wird der Inhalt von Tokens dynamisch angezeight: $field1$</div>
+       </div>
+      </html>
     </panel>
   </row>
   <row id="docu">
