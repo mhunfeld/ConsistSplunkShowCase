@@ -18,6 +18,7 @@
   <collection label="Snippets">
     <collection label="JS">
       <view name="snippets_translations"/>
+      <view name="snippets_clientSideStorage"/>
       <!--<view name="snippets_dynamic_searches"/>-->
     </collection>
   </collection>
