@@ -24,12 +24,9 @@ require([
             prefix: '-@',
             suffix: '$timeUnit$',
             labelPrefix: 'letzte ',
-            labelSuffix: '$labelSuffix$'
+            labelSuffix: '$labelSuffix$',
+            el: '#timeRangeSlider'
         }, {tokens: true});
-
-        timeSlider.render();
-
-        $('#customFieldset .fieldset').append(timeSlider.el);
 
 
         var simpleSlider = new RangeSlider({
@@ -38,21 +35,14 @@ require([
             max: 64,
             id: 'my-range-slider',
             token: 'slider_tok',
-            labelSuffix: 'Einträge'
+            labelSuffix: 'Einträge',
+            el: '#rangeSlider'
         }, {tokens: true});
 
-        simpleSlider.render();
-
-        $('#customFieldset .fieldset').append(simpleSlider.el);
-
-
-
-
         var readMeView = new ReadmeView({
-            path: '/ConsistSplunkToolbox/components/range-slider'
+            path: '/ConsistSplunkToolbox/components/range-slider',
+            el: '#readme'
         });
-    
-        $('#readme').append(readMeView.render().$el);
     });
 
     //@ sourceURL=timerangeslider_main.js
