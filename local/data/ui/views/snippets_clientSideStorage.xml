@@ -1,0 +1,163 @@
+<dashboard script="js_snippets/clientSideStorage_main.js" stylesheet="js_snippets/clientSideStorage_main.css">
+  <label>Client Side Storage</label>
+  <description>Nutzereinstellungen lokal im Browser speichern</description>
+  <row>
+    <html>
+      <p>
+        Teilweise kann es sinnvoll sein, Nutzereinstellungen speichern. Dafür gibt es unterschiedliche Vorgehensweisen, die unterschiedliche Vor- und Nachteile haben und hier vorgestellt werden..
+      </p>
+
+      <p>
+        Alle clientseitigen Speicherorte können in der Developer-Konsole (F12) untersucht werden:
+        <img src="/static/app/ConsistSplunkShowCase/js_snippets/developerConsole.PNG"/> 
+      </p>
+      <section>
+        <article>
+        <h2>Cookies</h2> 
+        <div class="docs">
+            <ul>
+                <li>
+                    <a class="external" href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/cookies">Doku in der MDN</a>
+                </li>
+                <li>
+                    werden clientseitig (für eine bestimmte Domain) gespeichert
+                </li>
+                <li>
+                    ein Cookie kann auf eine Domain und Path eingeschränkt werden. So kann gesteuert werden, ob die Cookie Einstellungen
+                     für das Dashboard, für die App oder sogar für den gesamten Server gelten soll
+                </li>
+                <li>
+                    werden bei jedem Request für die (sub-)Domain bzw. Path im Header mitgesendet (s. Network-Tab in der Developer-Konsole)
+                </li>
+                <li>
+                    hat ein Ablaufdatum
+                </li>
+                <li>
+                    max. 4 KB in einigen Browsern
+                </li>
+                <li>
+                    sinnvoll, wenn etwas clientseitig gespeichert, allerdings serverseitig verwendet werden soll
+                </li>
+                <li>
+                    Das Setzen eines Cookie-Wet in JS ist sehr simple, einzelne Werte auslesen ist ziemlich frickelig. 
+                    Daran merkt man, dass ein Cookie ursprünglich nur für Server-Anfragen und nicht zur weiteren Verarbeitung in JS gedacht war.
+                </li>
+                <li>
+                    keine Dauerhafte Speicherung (Cookies löschen)
+                </li>
+            </ul>
+        </div>
+        <div class="example">
+                <button id="setCookie" class="btn"> 
+                    set Cookie
+                </button>
+                <button id="resetCookie" class="btn"> 
+                    reset Cookie
+                </button>
+                <div id="readCookie" class="result">
+
+                </div>
+            </div>
+        </article>
+        <article>
+        <h2>localStorage</h2> 
+        <div class="docs">
+            <ul>
+                <li>
+                    <a class="external" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage">Doku in der MDN</a>
+                </li>
+                <li>
+                    werden clientseitig (für eine bestimmte Domain/Path) gespeichert
+                </li>
+                <li>
+                    Zugriff nur vom clientseitigem JS-Code
+                </li>
+                <li>
+                    kein Ablaufdatum
+                </li>
+                <li>
+                    max. 5 MB
+                </li>
+                <li>
+                    sinnvoll, für clientseitige (UI-)Einstellungen, Zwischenspeicherungen
+                </li>
+                <li>
+                    keine Dauerhafte Speicherung (unterschiedliches Verhalten der Browser, einige Löschen den localstorage auch, wenn cookies gelöscht werden)
+                </li>
+            </ul>
+            </div>
+            <div class="example">
+                <button id="setLocalStorage" class="btn"> 
+                    set local storage
+                </button>
+                <button id="resetLocalStorage" class="btn"> 
+                    reset local storage
+                </button>
+                <div id="readLocalStorage" class="result">
+                
+                </div>
+            </div>
+        </article>
+        <article>
+        <h2>sessionStorage</h2> 
+        <div class="docs">
+            <ul>
+                <li>
+                    <a class="external" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage">Doku in der MDN</a>
+                </li>
+                <li>
+                    werden clientseitig (für eine bestimmte Domain) gespeichert
+                </li>
+                <li>
+                    Zugriff nur vom clientseitigem JS-Code
+                </li>
+                <li>
+                    wird nach dem Ende einer Session gelöscht, d. h. es bleibt beim Reload einer Seite bestehen, beim Schließen der Browser-Fensters wird es jedoch gelöscht.
+                </li>
+                <li>
+                    jeder Tab, auch für die gleiche Domain, bekommt einen neuen SessionStorage
+                </li>
+                <li>
+                    max. 5 MB
+                </li>
+                <li>
+                    sinnvoll, für kurzfristige Zwischenspeicherungen (evtl. als Cache)
+                </li>
+                <li>
+                    keine Dauerhafte Speicherung
+                </li>
+            </ul>
+            </div>
+            <div class="example">
+                <button id="setSessionStorage" class="btn"> 
+                    set session storage
+                </button>
+                <button id="resetSessionStorage" class="btn"> 
+                    reset session storage
+                </button>
+                <div id="readSessionStorage" class="result">
+                
+                </div>
+            </div>
+        </article>
+        <article>
+        <h2>KV-Store</h2> 
+        <div class="docs">
+            <ul>
+                <li>
+                    wird Serverseitig gespeichert (also eigentlich nicht Teil dieser Betrachtung)
+                </li>
+                <li>
+                    dadurch können Einstellungen serverübergreifend gespeichert werden
+                </li>
+                <li>
+                    ggf. Datenschutz nicht gegeben, da im Serverseitigem KV-Store Nutzerdaten bzw. irgendeine Kennzeichnung gespeichert werden muss
+                </li>
+            </ul>
+        </div>
+        </article>
+      </section>
+    </html>
+</row>
+
+</dashboard>
