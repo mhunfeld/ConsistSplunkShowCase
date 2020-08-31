@@ -3,12 +3,14 @@
 
 require([
     '/static/app/ConsistSplunkToolbox/extensions/multiselect/multiselect.js',
+    '/static/app/ConsistSplunkToolbox/extensions/input/input.js',
     '/static/app/ConsistSplunkShowCase/helper/ReadmeView.js',
-    '/static/app/ConsistSplunkToolbox/utils/showtokens.js',
+    //'/static/app/ConsistSplunkToolbox/utils/showtokens.js',
     'css!/static/app/ConsistSplunkToolbox/material-iconfont/material-icons.css',
     'splunkjs/mvc/simplexml/ready!'
 ], function( 
         Multiselect,
+        Input,
         ReadmeView
     ) {
 
@@ -40,12 +42,15 @@ require([
             count: 20
         });
 
+       var test = new Input('field9').rememberSelectedValue();
+
 
         var readMeView = new ReadmeView({
-            path: '/ConsistSplunkToolbox/extensions/multiselect'
+            path: '/ConsistSplunkToolbox/extensions/multiselect',
+            el: "#readme"
         });
 
-        $('#readme').append(readMeView.render().$el);
+       $('#readme').append(readMeView.render().$el);
        
 });
 

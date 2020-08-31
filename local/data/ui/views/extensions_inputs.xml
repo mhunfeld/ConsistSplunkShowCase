@@ -1,7 +1,7 @@
 <dashboard script="extensions/multiselect/multiselect_main.js" stylesheet="extensions/multiselect/multiselect_main.css,overview.css">
   <label>Multiselect Fields</label>
   <description>Extendable multiselects</description>
-  <fieldset submitButton="true" autoRun="false"></fieldset>
+  <fieldset submitButton="false" autoRun="false"></fieldset>
   <row>
     <panel>
       <title>Smart DefaultValue</title>
@@ -34,6 +34,17 @@
         <choice value="value3">Wert 3</choice>
         <choice value="value4">Wert 4</choice>
         <default>value1</default>
+      </input>
+    </panel>
+    <panel>
+      <title>Remember selected value</title>
+      <input id="field9" type="multiselect" token="field9">
+        <label>Field 9</label>
+        <choice value="*">Alle</choice>
+        <choice value="value2">Wert 2</choice>
+        <choice value="value3">Wert 3</choice>
+        <choice value="value4">Wert 4</choice>
+        <default>*</default>
       </input>
     </panel>
   </row>
