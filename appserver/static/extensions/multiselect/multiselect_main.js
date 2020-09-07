@@ -5,7 +5,7 @@ require([
     '/static/app/ConsistSplunkToolbox/extensions/multiselect/multiselect.js',
     '/static/app/ConsistSplunkToolbox/extensions/input/input.js',
     '/static/app/ConsistSplunkShowCase/helper/ReadmeView.js',
-    //'/static/app/ConsistSplunkToolbox/utils/showtokens.js',
+    '/static/app/ConsistSplunkToolbox/utils/showtokens.js',
     'css!/static/app/ConsistSplunkToolbox/material-iconfont/material-icons.css',
     'splunkjs/mvc/simplexml/ready!'
 ], function( 
