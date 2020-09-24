@@ -47,6 +47,8 @@ define(['backbone',
 
             this.path = options.path;
             this.baseUrl = "../../../static/app/";
+
+            this.filename = options.filename || "/README.md";
             
             this.getReadMe()
             .done(function( readMeContent ) {
@@ -67,7 +69,7 @@ define(['backbone',
 
         getReadMe: function() {
             return $.ajax({
-                url: this.baseUrl + this.path + "/README.md",
+                url: this.baseUrl + this.path + this.filename,
                 beforeSend: function( xhr ) {
                   xhr.overrideMimeType( "application/x-www-form-urlencoded;charset=utf-8" );
                 }
