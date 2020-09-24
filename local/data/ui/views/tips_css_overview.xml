@@ -1,0 +1,8 @@
+<dashboard script="tips/cssOverview_main.js">
+    <label>CSS Tips and Tricks</label>
+    <row id="docu">
+        <html>
+            <div id="readme" class="content"></div>
+        </html>
+    </row>
+</dashboard>

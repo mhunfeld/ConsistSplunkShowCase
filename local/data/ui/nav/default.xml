@@ -22,6 +22,14 @@
       <!--<view name="snippets_dynamic_searches"/>-->
     </collection>
   </collection>
+  <collection label="Tips &amp; Tricks">
+    <collection label="CSS">
+      <view name="tips_css_overview"/>
+    </collection>
+    <collection label="JS">
+      <view name="tips_js_overview"/>
+    </collection>
+  </collection>
   <collection label="Dashboards">
       <view name="dashboards_corporate_ci"/>
       <view name="dashboards_tables"/>
