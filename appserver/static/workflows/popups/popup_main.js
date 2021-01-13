@@ -4,7 +4,7 @@ require([
     'splunkjs/mvc',
     'splunkjs/mvc/tableview',
     '/static/app/ConsistSplunkShowCase/workflows/popups/popups.js',
-    '/static/app/ConsistSplunkShowCase/workflows/commentList.js',
+    '/static/app/ConsistSplunkShowCase/workflows/popups/commentList.js',
     '/static/app/ConsistSplunkShowCase/workflows/kvStoreService.js',
     'splunkjs/mvc/simplexml/ready!'
 ],
