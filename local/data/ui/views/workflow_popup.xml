@@ -1,0 +1,50 @@
+<form script="workflows/popup_main.js" stylesheet="overview.css,workflows/popup_main.css" theme="light">
+  <label>Nutzereingaben in Popups </label>
+    
+    <row id="info">
+        <panel>
+            <table id="table">
+                <title>World Happiness Report 2015</title>
+                <search>
+                    <query>$wait_for_js_to_load$ | inputlookup 2015.csv | eval Actions = "" | table Country Region "Happiness Rank" Family Freedom Generosity Health* Trust* Actions</query>
+                    <earliest>-24h@h</earliest>
+                    <latest>now</latest>
+                </search>
+                <drilldown>
+                    <condition field="Actions">
+                        <set token="selectedCountry">$row.Country$</set>
+                        <set token="selectedRegion">$row.Region$</set>
+                    </condition>
+                </drilldown>
+            </table>
+        </panel>
+  </row>
+   <row>
+    <panel depends="$hidden$">
+        <html>
+            <div id="addCommentForm" class="addCommentForm" tokens="true">
+                <label for="country">Land</label>
+                <input type="text" id="country" name="country" value="$selectedCountry$" disabled="true"></input>
+                
+                <label for="region">Region</label>
+                <input type="text" id="region" name="region" value="$selectedRegion$" disabled="true"></input>
+
+                <label>Kommentar</label>
+                <textarea rows="6" id="comment"/>
+
+                <label for="user">user</label>
+                <input type="text" id="user" name="user" value="$env:user$" disabled="true"></input>
+            </div>
+        </html>
+    </panel>
+    <panel depends="$hidden$">
+         <table id="commentTable">
+                <search>
+                    <query>| inputlookup user_comments where country=$selectedCountry$ $showComments$ | table comment</query>
+                    <earliest>-24h@h</earliest>
+                    <latest>now</latest>
+                </search>
+            </table>
+    </panel>
+  </row>
+</form>

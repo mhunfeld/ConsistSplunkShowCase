@@ -34,9 +34,14 @@
       <view name="dashboards_corporate_ci"/>
       <view name="dashboards_tables"/>
   </collection>
+  <collection label="Workflows and User Inputs">
+      <view name="workflow_popup"/>
+      <view name="workflow_selection"/>
+  </collection>
   <collection label="Playground">
       <view name="webcomponents_slider"/>
       <view name="playground_svg"/>
+      <view name="playground_plotly"/>
   </collection>
   <view name="search"/>
 </nav>
