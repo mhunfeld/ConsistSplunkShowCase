@@ -38,13 +38,11 @@
         </html>
     </panel>
     <panel depends="$hidden$">
-         <table id="commentTable">
-                <search>
-                    <query>| inputlookup user_comments where country=$selectedCountry$ $showComments$ | table comment</query>
+                <search id="commentSearch">
+                    <query>| inputlookup user_comments where country="$selectedCountry$" $showComments$</query>
                     <earliest>-24h@h</earliest>
                     <latest>now</latest>
                 </search>
-            </table>
     </panel>
   </row>
 </form>

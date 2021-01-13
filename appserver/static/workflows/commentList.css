@@ -1,0 +1,20 @@
+ul.comments {
+    list-style: none;
+    font-family: 'Splunk Platform Sans';
+}
+
+.commentList {
+    white-space: nowrap;
+}
+
+.comment {
+    padding: 0 5px;
+    margin: 5px 0;
+    background-color: white;
+    border-radius: 2px;
+}
+
+.metadata {
+    color: lightgray;
+    font-size: 12px;
+}

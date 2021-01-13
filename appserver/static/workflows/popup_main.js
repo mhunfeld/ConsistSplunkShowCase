@@ -4,10 +4,11 @@ require([
     'splunkjs/mvc',
     'splunkjs/mvc/tableview',
     '/static/app/ConsistSplunkShowCase/workflows/popups/popups.js',
+    '/static/app/ConsistSplunkShowCase/workflows/commentList.js',
     '/static/app/ConsistSplunkShowCase/workflows/kvStoreService.js',
     'splunkjs/mvc/simplexml/ready!'
 ],
-function($, _, mvc, TableView, Popup, KvStoreService) {
+function($, _, mvc, TableView, Popup, CommentList, KvStoreService) {
     
     var submittedTokens = mvc.Components.getInstance('submitted');
 
@@ -29,18 +30,18 @@ function($, _, mvc, TableView, Popup, KvStoreService) {
     var actionRenderer = new ActionRenderer();
 
 
-    var CommentRenderer = TableView.BaseRowExpansionRenderer.extend({
-        // initialize: function() {
+    var commentList = new CommentList({
+        managerid: "commentSearch",
+        output_mode: 'json'
+    });
 
-        // },
+    commentList.render();
+
+    var CommentRenderer = TableView.BaseRowExpansionRenderer.extend({
         canRender: function(rowData) {
             return true;
         },
-        // createContainer: function(rowData) {
-
-        // },
         setup: function($container, rowData) {
-            console.log(rowData);
             var countryIndex = _.indexOf(rowData.fields, 'Country');
             var country = rowData.values[countryIndex];
             submittedTokens.set('selectedCountry', country);
@@ -51,8 +52,7 @@ function($, _, mvc, TableView, Popup, KvStoreService) {
             submittedTokens.unset('showComments');
         },
         render: function($container, rowData) {
-            var commentTable = mvc.Components.get('commentTable');
-            $container.append(commentTable.$el);
+            $container.append(commentList.$el);
             return $container;
         }
     });
