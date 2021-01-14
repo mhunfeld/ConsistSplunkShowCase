@@ -93,7 +93,7 @@ define([
 			"POST",
 			null,
 			null,
-            records,
+            JSON.stringify(records),
             {
 			"Content-Type": "application/json"
 		    },

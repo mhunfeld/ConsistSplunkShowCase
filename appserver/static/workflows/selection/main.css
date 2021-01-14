@@ -1,0 +1,7 @@
+#info .dashboard-cell.dashboard-layout-panel {
+    width: unset !important;
+}
+
+#info {
+    display: flex;
+}

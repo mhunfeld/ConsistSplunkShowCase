@@ -1,0 +1,53 @@
+<form script="workflows/selection/main.js,workflows/selection/documentation.js" stylesheet="overview.css,workflows/selection/main.css" theme="light">
+  <label>Sammeleingaben</label>
+    
+    <row id="info">
+        <panel>
+            <title>World Happiness Report 2015</title>
+            <table id="table">
+                <search>
+                    <query>$wait_for_js_to_load$ | inputlookup 2015.csv | eval "Auswahl" = Country | table Auswahl Country Region "Happiness Rank" Family Freedom Generosity Health* Trust* </query>
+                    <earliest>-24h@h</earliest>
+                    <latest>now</latest>
+                </search>
+                <option name="drilldown">none</option>
+            </table>
+        </panel>
+        <panel depends="$hidden$">
+            <search id="commentSearch">
+                <query>| inputlookup user_comments where country="$selectedCountry$" $showComments$</query>
+                <earliest>-24h@h</earliest>
+                <latest>now</latest>
+            </search>
+        </panel>
+        <panel depends="$editSelection$">
+                <title>Kommentare</title>
+
+            <html>
+                <div id="addCommentForm" class="addCommentForm" tokens="true">
+                    <!-- <label for="country">Land</label>
+                    <input type="text" id="country" name="country" value="$selectedCountry$" disabled="true"></input>
+                    
+                    <label for="region">Region</label>
+                    <input type="text" id="region" name="region" value="$selectedRegion$" disabled="true"></input> -->
+
+                    <label>Kommentar</label>
+                    <textarea rows="6" id="comment"/>
+
+                    <label for="user">user</label>
+                    <input type="text" id="user" name="user" value="$env:user$" disabled="true"></input>
+                </div>
+
+                <div class="btn-group" role="group">
+                    <button id="close" class="close-button btn btn-secondary modal-btn-secondary pull-left">Abbrechen</button>
+                    <button id="save" class="save-button btn btn-primary modal-btn-primary pull-right">Speichern</button>
+                </div>
+            </html>
+        </panel>
+  </row>
+  <row id="docu">
+        <html>
+            <div id="readme" class="content"></div>
+        </html>
+    </row>
+</form>

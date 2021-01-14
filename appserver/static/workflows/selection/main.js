@@ -3,32 +3,28 @@ require([
     'underscore',
     'splunkjs/mvc',
     'splunkjs/mvc/tableview',
-    '/static/app/ConsistSplunkShowCase/workflows/popups/popups.js',
+    '/static/app/ConsistSplunkShowCase/workflows/selection/selectionRenderer.js',
     '/static/app/ConsistSplunkShowCase/workflows/commentList.js',
     '/static/app/ConsistSplunkShowCase/workflows/kvStoreService.js',
     'splunkjs/mvc/simplexml/ready!'
 ],
-function($, _, mvc, TableView, Popup, CommentList, KvStoreService) {
+function($, _, mvc, TableView, SelectionRenderer, CommentList, KvStoreService) {
     
     var submittedTokens = mvc.Components.getInstance('submitted');
+    var table = mvc.Components.get('table');
 
-    var ActionRenderer = TableView.BaseCellRenderer.extend({
-
-        template: function(data) {
-            return /*html*/`<i id="addComment" class="icon-speech-bubble icon actions" title="Kommentar zu Eintrag hinterlegen"></i>`;
-        },
-
-        canRender: function(cell) {
-            return cell.field=='Actions';
-        },
-
-        render: function($td, cell) {
-                $td.html(this.template());
-        }
+    var selectionRenderer = new SelectionRenderer({
+        selectedWagonsToken: "selected",
+        tableComponent: table
     });
 
-    var actionRenderer = new ActionRenderer();
-
+    submittedTokens.on("change:selected", function(lala, selected) {
+        if((selected && selected.length > 0)) {
+            submittedTokens.set('editSelection', true);
+        } else {
+            submittedTokens.unset('editSelection');
+        }
+    });
 
     var commentList = new CommentList({
         managerid: "commentSearch",
@@ -59,48 +55,42 @@ function($, _, mvc, TableView, Popup, CommentList, KvStoreService) {
 
     var commentRenderer = new CommentRenderer();
 
-
-
-    mvc.Components.get('table').getVisualization(function(tableView) {
-        tableView.addCellRenderer(actionRenderer);
+    table.getVisualization(function(tableView) {
+        tableView.addCellRenderer(selectionRenderer);
         tableView.addRowExpansionRenderer(commentRenderer);
-        tableView.render();
     });
-
-    var popupForm = mvc.Components.get('content1');
 
     var kvStoreService = new KvStoreService({
         app: 'ConsistSplunkShowCase/',
         kvStore: 'user_comments'
     })
 
-    var saveComment = function(event) {
+    var saveComments = function(event) {
+
         var comment = $('#comment').val();
         var user = $('#user').val();
-        var country = $('#country').val();
+        var created = Date.now();
 
-        kvStoreService.saveRecord({
-            comment: comment, 
-            user: user,
-            country: country,
-            created: Date.now()
-        })
+        var selectedItems = submittedTokens.get('selected');
+
+        var comments = selectedItems.map((selected) => {
+            return {
+                country: selected,
+                user: user,
+                comment: comment, 
+                created: created
+            }
+        });
+
+
+
+        kvStoreService.saveRecordsInBatch(comments)
 
     };
 
-    var popup1 = new Popup({
-        title: "Popup mit Table",
-        body: popupForm.el,
-        onSave: saveComment
-    });
 
-    popup1.render();
+    $('#save').on('click', saveComments);
 
-    $('#dashboard1').append(popup1.$el);
-    
-    $('#table').on('click', '#addComment', function(event) {
-        popup1.show();
-    });
 
     submittedTokens.set("wait_for_js_to_load", " ");
 

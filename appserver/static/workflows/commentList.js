@@ -36,7 +36,7 @@ define([
                 <div class="content">${linebreak2br(comment.comment)}</div>
                 <div class="metadata">
                     <span class="user">${comment.user}</span>
-                    <span class="created">${moment(parseInt(comment.created)).format('DD.MM.YYYY hh:mm')}</span>
+                    <span class="created">${moment(parseInt(comment.created)).format('DD.MM.YYYY HH:mm')}</span>
                 </div>
             </li>`
         },
