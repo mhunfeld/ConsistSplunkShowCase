@@ -42,7 +42,8 @@ define(['backbone',
         initialize: function(options) {
             this.converter = new showdown.Converter({ 
                           tables: true, 
-                          extensions: ['prettify', customClassBinding]
+                          extensions: ['prettify', customClassBinding],
+                          tasklists: true
                       });
 
             this.path = options.path;

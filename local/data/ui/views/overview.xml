@@ -1,4 +1,4 @@
-<dashboard stylesheet="overview.css">
+<dashboard script="overview.js" stylesheet="overview.css">
   <label>Overview</label>
   <description></description>
 
@@ -15,5 +15,15 @@
         </div>
       </html>
     </panel>
+  </row>
+  <row id="docu">
+    <html>
+      <input type="checkbox" id="readme_input" />
+        <label for="readme_input">Übersicht</label>
+        <div id="readme" class="content"></div>
+      <input type="checkbox" id="todos_input" />
+        <label for="todos_input">TODOs</label>
+        <div id="todos" class="content"></div>
+    </html>
   </row>
 </dashboard>
