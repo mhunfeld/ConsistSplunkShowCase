@@ -1,0 +1,34 @@
+#layout1 th, #layout1 th a, #layout1 th i, #layout1 .table .sorts .icon-sorts:before {
+    background-color: #60529f;
+    border-color: #f1f0f5;
+    color: #fff !important;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+#layout1 tr td:first-child, #layout1 tr th:first-child {
+    padding-left: 1.5rem;
+}
+
+#layout1 td, #layout1 th {
+    vertical-align: middle;
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+#layout1 td {
+    padding: 0.75rem;
+}
+
+#layout1 .odd > td, #layout1 .even > td {
+    background-color: #ffffff;
+}
+
+#layout1 .results-table#statistics>.table>tbody {
+    font-family: 'Open Sans', sans-serif !important;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #646367;
+    text-align: left;
+}
