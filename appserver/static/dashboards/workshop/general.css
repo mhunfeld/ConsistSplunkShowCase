@@ -1,0 +1,25 @@
+#layout1 * {
+    color: #646367 !important;
+    font-family: 'Open Sans', sans-serif,bold !important;
+}
+
+.dashboard-cell {
+    background-color: #fff;
+    background-clip: border-box;
+    box-shadow: 0 1px 15px 1px rgba(208,201,243,.5);
+    border-radius: 0px;
+    margin: 0.75rem;
+    width: calc(50% - 1.5rem) !important;
+}
+
+.dashboard-row .dashboard-panel h2.panel-title {
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding: 1.5rem 1.5rem;
+    font-size: 1.185rem;
+    line-height: 1.2;
+    font-weight: 500;
+}
+
+.ui-resizable-handle, .element-footer{
+    display: none !important;
+}

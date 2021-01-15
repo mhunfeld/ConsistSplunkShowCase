@@ -1,0 +1,157 @@
+<form script="dashboards/workshop/main.js, dashboards/workshop/general.js" hideChrome="true" hideTitle="true" hideEdit="true" hideExport="true">
+  <label>Workshop</label>
+  <search id="regionSearch">
+    <query>
+      | inputlookup countryList.csv | dedup region | fields region
+    </query>
+  </search>
+  <search id="countrySearch">
+    <query>
+      | inputlookup countryList.csv | search $region$ | rename "alpha-2" as alpha2 | fields name alpha2
+    </query>
+  </search>
+  <fieldset submitButton="true">
+    <!--<input id="timeField" type="time" token="time">
+      <label></label>
+      <default>
+        <earliest>-24h@h</earliest>
+        <latest>now</latest>
+      </default>
+    </input>-->
+    <input id="region" type="multiselect" token="region" searchWhenChanged="true">
+      <label>Kontinent</label>
+      <fieldForValue>region</fieldForValue>
+      <fieldForLabel>region</fieldForLabel>
+      <prefix>(</prefix>
+      <suffix>)</suffix>
+        <valuePrefix>region="</valuePrefix>
+      <valueSuffix>"</valueSuffix>
+      <delimiter> OR </delimiter>
+      <choice value="*">Alle</choice>
+      <default>"*"</default>
+    </input>
+    <input id="country" type="multiselect" token="country" searchWhenChanged="true">
+      <label>Land</label>
+      <fieldForValue>alpha2</fieldForValue>
+      <fieldForLabel>name</fieldForLabel>
+      <prefix>(</prefix>
+      <suffix>)</suffix>
+      <valuePrefix>alpha2="</valuePrefix>
+      <valueSuffix>"</valueSuffix>
+      <delimiter> OR </delimiter>
+      <choice value="*">Alle</choice>
+      <default>*</default>
+    </input>
+  </fieldset>
+  <row id="server_row">
+    <panel id="ramUsage_panel">
+      <title>RAM Verbrauch</title>
+      <single id="ramUsage_singleValue">
+        <search id="ramUsage_search">
+          <query>(component=PerProcess host=splunk index=_introspection sourcetype=splunk_resource_usage) 
+| eval process='data.process', args='data.args', sid='data.search_props.sid', process_class=case((process == "splunk-optimize"),"index service",(((((process == "sh") OR (process == "ksh")) OR (process == "bash")) OR like(process,"python%")) OR (process == "powershell")),"scripted input",(process == "mongod"),"KVStore"), process_class=case(((process == "splunkd") AND ((like(args,"-p %start%") OR like(args,"service")) OR like(args,"%_internal_launch_under_systemd%"))),"splunkd server",((process == "splunkd") AND isnotnull(sid)),"search",((process == "splunkd") AND ((like(args,"fsck%") OR like(args,"recover-metadata%")) OR like(args,"cluster_thing"))),"index service",((process == "splunkd") AND (args == "instrument-resource-usage")),"scripted input",((like(process,"python%") AND like(args,"%/appserver/mrsparkle/root.py%")) OR like(process,"splunkweb")),"Splunk Web",isnotnull(process_class),process_class), process_class=if(isnull(process_class),"other",process_class) 
+| bin _time span=10s 
+| eval pid='data.pid', mem_used='data.mem_used' 
+| stats latest(mem_used) AS resource_usage_dedup latest(process_class) AS process_class by pid, _time 
+| stats sum(resource_usage_dedup) AS resource_usage by _time, process_class 
+| timechart minspan=10s First(resource_usage) AS "Resource Usage" by process_class</query>
+          <earliest>-24h@h</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="colorMode">none</option>
+        <option name="drilldown">none</option>
+        <option name="numberPrecision">0</option>
+        <option name="rangeColors">["0x6E61A6","0x7ADC6E","0x57D1FA","0x57D1FA","0x867EFC"]</option>
+        <option name="rangeValues">[100,200,500,1000]</option>
+        <option name="refresh.display">progressbar</option>
+        <option name="trellis.enabled">1</option>
+        <option name="trellis.size">medium</option>
+        <option name="trellis.splitBy">process_class</option>
+        <option name="trendInterval">-7d</option>
+        <option name="unit">MB</option>
+        <option name="useColors">1</option>
+        <option name="height">200</option>
+      </single>
+    </panel>
+  </row>
+  <row id="logging_row">
+    <panel id="errorMessages_panel">
+        <title>Fehlermeldungen</title>
+      <chart id="errorMessages_chart">
+        <search id="errorMessages_search">
+          <query>index=_internal sourcetype=splunkd  | timechart count as "Log-Level" by log_level</query>
+          <earliest>-24h</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="charting.chart">area</option>
+        <option name="charting.drilldown">all</option>
+        <option name="charting.fieldColors">
+          {"INFO":0x6E61A6, "WARN": 0xFFCC00, "ERROR": 0xE34A42, "NULL":0x57D1FA}
+        </option>
+      </chart>
+    </panel>
+    <panel id="logEntriesBySourcetype_panel">
+      <title>Anzahl Logeinträge nach Dateityp</title>
+      <table id="logEntriesBySourcetype_table">
+        <search id="logEntriesBySourcetype_search">
+          <query>
+                index=_internal | chart sparkline count by sourcetype
+              </query>
+          <earliest>-24h@h</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="drilldown">none</option>
+        <format type="sparkline" field="sparkline">
+          <option name="lineColor">#6E61A6</option>
+          <option name="fillColor">#867EFC</option>
+        </format>
+      </table>
+    </panel>
+  </row>
+  <row id="webAccess_row">
+    <panel id="accessByStatusCode_panel">
+      <title>HTTP Status Codes</title>
+      <chart id="accessByStatusCode_chart">
+        <search id="accessByStatusCode_search">
+          <query>
+                  index = _internal sourcetype=splunkd_access
+                  | stats count sum(bytes) as "Total Bytes" by status, date_hour
+                  | table status date_hour count "Total Bytes"
+              </query>
+          <earliest>-1d</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="charting.axisY.scale">log</option>
+        <option name="charting.chart">bubble</option>
+        <option name="charting.chart.bubbleMaximumSize">60</option>
+        <option name="charting.chart.bubbleMinimumSize">20</option>
+        <option name="charting.axisTitleY.text">Requests</option>
+        <option name="charting.axisTitleX.text">Hour</option>
+        <option name="charting.fieldColors">
+          {"404": 0xE34A42, "401": 0xFFCC00, "200":0x7ADC6E, "201":0x57D1FA}
+        </option>
+      </chart>
+    </panel>
+    <panel id="accessByUser_Panel">
+      <title>Nutzer Zugriff</title>
+      <table id="accessByUser_table">
+        <search id="accessByUser_search">
+          <query>
+              index=_internal clientip=* useragent=*
+              | eval Browser = useragent
+              | eval Betriebssystem = useragent
+              | rename user AS Benutzer
+              | rename clientip AS "IP-Adresse"
+              | rename method AS "HTTP-Methode"
+              | rename status AS "HTTP-Status"
+              | eval Zeitpunkt = strftime(_time, "%d.%m.%Y %H:%M:%S")
+              | table Zeitpunkt Benutzer "IP-Adresse" "HTTP-Methode" "HTTP-Status" Browser Betriebssystem
+          </query>
+          <earliest>-24h@h</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="drilldown">none</option>
+      </table>
+    </panel>
+  </row>
+</form>

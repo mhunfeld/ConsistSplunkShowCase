@@ -1,0 +1,36 @@
+
+/*Seitenbastände am Header -> evtl als Aufgabe stehen lassen*/
+.dashboard-body {
+    padding: 0;
+}
+
+.dashboard-header {
+    background: linear-gradient(#815eae,#715c94);
+    box-shadow: 0 8px 16px 0 rgba(58, 58, 62,.2) !important;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.dashboard-header img {
+    height: 30px;
+}
+
+.dashboard-header .logo {
+    margin: 0 20px;
+    display: inline-block;
+}
+
+.dashboard-header .logo img {
+    height: 80px;
+}
+
+.dashboard-header .helpdesk {
+    display: inline-block;
+    background: #fff;
+    border-radius: 50%;
+    padding: 10px;
+    float: right;
+    margin: 15px;
+    color: #524c96;
+}

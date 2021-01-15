@@ -1,0 +1,58 @@
+
+/*als Aufgabe*/
+#fieldset1 {
+    padding: 25px;
+}
+
+[data-test=multiselect], [data-test=time-range-dropdown] button {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: #6b6f80;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 0;
+}
+
+/*Als Aufgabe*/
+#layout1 .btn-primary {
+    background-color: #60529f;
+    border-color: #60529f;
+    color: #fff !important;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    border-radius: 0;
+}
+/*Als Aufgabe*/
+#layout1 .btn-primary:hover {
+    color: #fff;
+    background-color: #514b95;
+    border-color: #514b95;
+}
+
+
+#ramUsage_panel.dashboard-cell {
+    width: calc(100% - 1.5rem) !important;
+}
+
+#ramUsage_singleValue .viz-panel {
+    transform: scale(0.7);
+    padding: 0;
+    width: 14% !important;
+}
+
+#ramUsage_singleValue .facet-label {
+    font-size: 18px;
+}
+
+#singleValue {
+    position: unset !important;
+}
+
+#accessByUser_table img {
+    height: 32px;
+}
+
+#accessByUser_table .table td {
+    text-align: center;
+}

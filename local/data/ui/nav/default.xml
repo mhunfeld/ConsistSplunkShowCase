@@ -32,7 +32,7 @@
   </collection>
   <collection label="Dashboards">
       <view name="dashboards_corporate_ci"/>
-      <view name="dashboards_tables"/>
+      <view name="dashboards_workshop"/>
   </collection>
   <collection label="Workflows and User Inputs">
       <view name="workflow_popup"/>

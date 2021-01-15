@@ -2,7 +2,7 @@ require([
     'splunkjs/mvc',
     "splunkjs/mvc/tableview",
     '/static/app/ConsistSplunkToolbox/components/popovers/popovers.js',
-    '/static/app/ConsistSplunkShowCase/dashboards/corporate_ci/ua-parser.min.js',
+    '/static/app/ConsistSplunkShowCase/dashboards/ua-parser.min.js',
     'splunkjs/mvc/simplexml/ready!'
 ],
 function(mvc, TableView, popovers, UAParser) {

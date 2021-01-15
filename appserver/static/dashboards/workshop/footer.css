@@ -1,0 +1,24 @@
+.dashboard-footer {
+    background: linear-gradient(#815eae,#715c94);
+    box-shadow: 0 8px 16px 0 rgba(58, 58, 62,.2) !important;
+    color: #fff;
+    margin: 0;
+    padding: 20px;
+}
+
+.dashboard-footer div {
+    display: inline-block;
+}
+
+.dashboard-footer .link-section {
+    float: right;
+    color: #ffffff;
+}
+
+.dashboard-footer .link-section a {
+    color: #ffffff;
+}
+
+.dashboard-footer .link-seperator {
+    padding: 0 15px;
+}
