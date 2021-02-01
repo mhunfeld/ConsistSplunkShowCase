@@ -6,7 +6,7 @@
     <panel>
       <html>
         <div id="requirements">
-          <h1>Voraussetzungen</h1>
+          <h1>Voraussetzungen HOHOHO in Development</h1>
           Diese App nutzt in einigen Dashboards Visualisierungen aus SplunkBase:
             <ul>
               <li><span>Snippets > CSS > Company-CI: </span> <a href="https://splunkbase.splunk.com/app/4378/">Semicircle Donut Chart</a></li>
