@@ -22,6 +22,9 @@
         <div id="customRangeDatepicker"></div>
       </html>
       <html>
+        <div id="customRangeDatepickerIntermediate"></div>
+      </html>
+      <html>
         <div id="customExtendedDatepicker"></div>
         <div>Bei der Initialisierung eines Datepickers können alle Options des Original DateRangePickers verwendet werden. <br />
          Auflistung und Dokumentation der Options unter <a href="http://www.daterangepicker.com/#options"> Daterangepicker Options</a><br/>

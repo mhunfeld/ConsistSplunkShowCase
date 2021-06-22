@@ -30,6 +30,15 @@ require([
             el: '#customRangeDatepicker'
         });
 
+        var rangeDatepicker = new Datepicker({
+            label: 'Datepicker as Range Picker and intermediate search',
+            id: 'customRangeDatepickerIntermediate',
+            token: 'customrangedateIntermediate_tok',
+            asRange: true, 
+            searchWhenChange: true,
+            el: '#customRangeDatepickerIntermediate'
+        });
+
 
         var extendedDatepicker = new Datepicker({
             label: 'Datepicker with Options',
